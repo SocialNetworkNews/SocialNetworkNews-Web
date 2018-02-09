@@ -19,7 +19,9 @@ export const config: GalleryConfig = {
   'navigation': null,
   'imageSize': 'contain',
   'style': {
-    'padding-top': '30px'
+    'width': '57rem',
+    'height': '32rem',
+    'padding-top': '2rem'
   },
 };
 
