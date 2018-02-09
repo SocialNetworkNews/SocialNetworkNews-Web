@@ -1,0 +1,74 @@
+<header>
+  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
+    <logo>
+      <a class="logo navbar-brand" href="#"><strong>Social Networks News</strong></a>
+    </logo>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link">Features</a>
+        </li>
+        <li class="nav-item active waves-light" mdbRippleRadius>
+          <a class="nav-link" routerLink="/papers" routerLinkActive="active">Papers <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+  <!-- Main -->
+  <div class="view intro hm-purple-light" style="">
+    <div class="full-bg-img flex-center">
+      <div class="container text-center white-text wow fadeInUp">
+        <h2>{{paperTitle}}</h2>
+        <br>
+        <h5>{{paperSubtitle}}</h5>
+      </div>
+    </div>
+  </div>
+  <!-- /.Main -->
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<main class="text-center py-5">
+
+  <div class="container" gallerize>
+    <div class="card-deck" *ngFor="let rows of chunkedData">
+      <div class="card card-cascade" *ngFor="let item of rows">
+        <!--Retweet Badge-->
+        <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true">
+          <i class="fa fa-retweet"></i>
+        </div>
+        <!--Card image-->
+        <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.imageURL">
+          <img [src]="item.imageURL" class="img-fluid" style="z-index: 0">
+          <a>
+            <div class="mask"></div>
+          </a>
+        </div>
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title when Text exists-->
+          <h4 class="card-title text-left" *ngIf="(item.text && item.imageURL) || (item.text && !item.imageURL)"><a href="{{item.userLink}}">{{item.title}}</a></h4>
+          <!--Title when no Text exists-->
+          <h4 class="card-title align-middle" *ngIf="!item.text || !item.imageURL"><a href="{{item.userLink}}">{{item.title}}</a></h4>
+          <!--Text-->
+          <p class="card-text text-justify" *ngIf="item.text">{{item.text}}</p>
+        </div>
+        <!-- Card footer -->
+        <div class="card-data">
+          <ul>
+            <li><i class="fa fa-clock-o">&nbsp;</i>{{item.createdAt}}</li>&nbsp;
+            <li><i class="fa fa-comments-o">&nbsp;</i>{{item.replies}}</li>&nbsp;
+            <li><i class="fa fa-heart">&nbsp;</i>{{item.favs}}</li>&nbsp;
+            <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets}}</li>&nbsp;
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<!--Main Layout-->
