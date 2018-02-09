@@ -1,2 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
 html { overflow:auto; }
+.navbar.navbar-dark .breadcrumb .nav-item.active > .nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
+  border-radius: 5px;
+}
+
+.view{
+  background: url("https://riot.nordgedanken.de/news-newsletter-newspaper-information-158651.jpeg")no-repeat center center;
+  background-size: cover;
+}
+.navbar {
+  background-color: transparent;
+}
+.top-nav-collapse {
+  background-color: #763d8a;
+}
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #763D8A;
+  }
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card .card-data {
+  background-color: #929fba;
+  color: #fff;
+  text-align: center;
+  height: auto;
+  padding: 10px;
+}
+
+.card .card-data ul {
+  margin-bottom: 0;
+  font-size: .9rem;
+}
+
+.card .card-data ul li {
+  display: inline;
+}
+
+.card .card-data ul a {
+  color: #fff;
+}
+
+.card .card-data ul a .fa {
+  margin-left: 5px;
+  margin-right: 3px;
+}
+
+.card.card-cascade {
+  width: 100%;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
+
+.card-img-top img {
+  width: 100%;
+  height: 18.5vw;
+  object-fit: cover;
+}
+
+.card .card-body {
+  z-index: 1;
+  background-color: white;
+}
+
+.card:not([class*="card-outline-"]) {
+  border: 0;
+}
+
+#toast-container > div, .author-box, .badge, .btn, .card-wrapper .back, .card-wrapper .front, .card.card-cascade.wider .card-body, .card:not([class*="card-outline-"]), .chip, .counter, .dropdown-content, .jumbotron, .md-pills .nav-link.active, .modal-dialog.cascading-modal .modal-c-tabs .nav-tabs, .modal-dialog.modal-notify .modal-header, .navbar, .pagination .active .page-link, .pricing-card .price .version, .section-blog-fw img, .side-nav, .social-list, .z-depth-1 {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.btn-floating:hover, .card-overlay, .card.card-cascade img, .colorful-select .dropdown-content li a:hover, .colorful-select .dropdown-content li span:hover, .comments-list img, .modal-dialog.cascading-modal.modal-avatar .modal-header img, .reply-form img, .testimonial-carousel .testimonial .avatar img, .z-depth-2 {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+}
+
+.card.card-cascade img {
+  border-radius: 4px;
+}
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+}
+
+/* The ribbons by https://codepen.io/eode9/pen/twkKm*/
+
+.card-ribbon-bottom.card-ribbon-right, .card-ribbon-top.card-ribbon-left {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.card-ribbon-left {
+  left: -70px;
+}
+
+.card-ribbon-top {
+  top: 20px;
+}
+
+.card-ribbon:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.card-ribbon {
+  width: 200px;
+  padding: 2px 5px;
+  position: absolute;
+  text-align: center;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.card-ribbon.tblue {
+  background-color: #1da1f2;
+}
