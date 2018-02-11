@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
 
+NEED TO COMMENT OUT Line 18 `@OnChange()` in ./node_modules/angular-bootstrap-md/tooltip/tooltip.directive.ts to let this work
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

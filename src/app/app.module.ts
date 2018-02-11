@@ -33,7 +33,7 @@ export const config: GalleryConfig = {
     PapersComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'snn-app'}),
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     ScrollbarModule,

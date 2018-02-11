@@ -1,5 +1,5 @@
 <header>
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
+  <mdb-navbar *ngIf="isBrowser" SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
     <logo>
       <a class="logo navbar-brand" href="#"><strong>Social Networks News</strong></a>
     </logo>

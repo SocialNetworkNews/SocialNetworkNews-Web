@@ -1,5 +1,5 @@
 <header>
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
+  <mdb-navbar *ngIf="isBrowser" SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
     <logo>
       <a class="logo navbar-brand" href="#"><strong>Social Networks News</strong></a>
     </logo>
@@ -34,8 +34,8 @@
 <!--Main Layout-->
 <main class="text-center py-5">
 
-  <div class="container" gallerize>
-    <div class="card-deck" *ngFor="let rows of chunkedData">
+  <div class="container" *ngIf="isBrowser" gallerize>
+    <div class="card-deck row" *ngFor="let rows of chunkedData">
       <div class="card card-cascade" *ngFor="let item of rows">
         <!--Retweet Badge-->
         <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true">

@@ -34,9 +34,9 @@
 <!--Main Layout-->
 <main class="text-center py-5">
 
-  <div class="container" gallerize>
-    <div class="card-deck" *ngFor="let rows of chunkedData">
-      <div class="card card-cascade mx-auto" *ngFor="let item of rows" style="max-width: 33.33%">
+  <div class="container">
+    <div class="card-deck row" *ngFor="let rows of chunkedData">
+      <div class="card mx-auto" *ngFor="let item of rows" style="max-width: 33.33%">
         <!--Card image-->
         <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.logoURL">
           <img [src]="item.logoURL" class="img-fluid" style="z-index: 0">
