@@ -1,4 +1,4 @@
-<div class="card-deck row" *ngFor="let rows of chunkedData">
+<div class="card-deck row" *ngFor="let rows of data">
   <div class="card card-cascade" *ngFor="let item of rows">
     <!--Retweet Badge-->
     <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true">
