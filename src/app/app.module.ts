@@ -11,6 +11,8 @@ import { MainComponent } from './main/main.component';
 import {AppRoutingModule} from './app.routing';
 import { PaperComponent } from './paper/paper.component';
 import { PapersComponent } from './papers/papers.component';
+import { TweetListComponent } from './tweet-list/tweet-list.component';
+import { PapersListComponent } from './papers-list/papers-list.component';
 
 
 export const config: GalleryConfig = {
@@ -31,6 +33,8 @@ export const config: GalleryConfig = {
     MainComponent,
     PaperComponent,
     PapersComponent,
+    TweetListComponent,
+    PapersListComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),

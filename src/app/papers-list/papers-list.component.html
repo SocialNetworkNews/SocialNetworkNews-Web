@@ -1,0 +1,20 @@
+<div class="card-deck row" *ngFor="let rows of chunkedData">
+  <div class="card mx-auto" *ngFor="let item of rows" style="max-width: 33.33%">
+    <!--Card image-->
+    <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.logoURL">
+      <img [src]="item.logoURL" class="img-fluid" style="z-index: 0">
+      <a>
+        <div class="mask"></div>
+      </a>
+    </div>
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title when Text exists-->
+      <h4 class="card-title text-left" *ngIf="(item.description && item.logoURL) || (item.description && !item.logoURL)"><a routerLink="/paper/{{item.uuid}}">{{item.title}}</a></h4>
+      <!--Title when no Text exists-->
+      <h4 class="card-title align-middle" *ngIf="!item.description || !item.logoURL"><a routerLink="/paper/{{item.uuid}}">{{item.title}}</a></h4>
+      <!--Text-->
+      <p class="card-text text-justify" *ngIf="item.description">{{item.description}}</p>
+    </div>
+  </div>
+</div>

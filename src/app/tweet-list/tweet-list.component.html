@@ -1,0 +1,33 @@
+<div class="card-deck row" *ngFor="let rows of chunkedData">
+  <div class="card card-cascade" *ngFor="let item of rows">
+    <!--Retweet Badge-->
+    <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true">
+      <i class="fa fa-retweet"></i>
+    </div>
+    <!--Card image-->
+    <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.imageURL">
+      <img [src]="item.imageURL" class="img-fluid" style="z-index: 0">
+      <a>
+        <div class="mask"></div>
+      </a>
+    </div>
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title when Text exists-->
+      <h4 class="card-title text-left" *ngIf="(item.text && item.imageURL) || (item.text && !item.imageURL)"><a href="{{item.userLink}}">{{item.title}}</a></h4>
+      <!--Title when no Text exists-->
+      <h4 class="card-title align-middle" *ngIf="!item.text || !item.imageURL"><a href="{{item.userLink}}">{{item.title}}</a></h4>
+      <!--Text-->
+      <p class="card-text text-justify" *ngIf="item.text">{{item.text}}</p>
+    </div>
+    <!-- Card footer -->
+    <div class="card-data">
+      <ul>
+        <li><i class="fa fa-clock-o">&nbsp;</i>{{item.createdAt.toLocaleString()}}</li>&nbsp;
+        <li><i class="fa fa-comments-o">&nbsp;</i>{{item.replies.toLocaleString()}}</li>&nbsp;
+        <li><i class="fa fa-heart">&nbsp;</i>{{item.favs.toLocaleString()}}</li>&nbsp;
+        <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
+      </ul>
+    </div>
+  </div>
+</div>
