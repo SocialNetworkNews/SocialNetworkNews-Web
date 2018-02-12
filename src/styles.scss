@@ -133,3 +133,40 @@ html { overflow:auto; }
 .card-ribbon.tblue {
   background-color: #1da1f2;
 }
+
+.indigo.lighten-1 {
+  background-color: #5c6bc0 !important;
+}
+
+.indigo {
+  background-color: #3f51b5 !important;
+}
+
+.testimonial-card .card-up {
+  overflow: hidden;
+  height: 120px;
+  border-radius: .3rem .3rem 0 0;
+}
+
+.testimonial-card .avatar {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin: -65px auto 0;
+  overflow: hidden;
+  border: 5px solid #fff;
+}
+
+.testimonial-card .avatar img {
+  width: 100%;
+}
+
+.testimonial-card .card-body {
+  text-align: center;
+}
+
+.middle {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}

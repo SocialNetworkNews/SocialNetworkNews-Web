@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NgModule} from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ScrollbarModule } from './utils/scrollbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {GalleryConfig, GalleryModule} from 'ng-gallery';
+import { AvatarModule } from 'ngx-avatar';
+
 
 
 import { AppComponent } from './app.component';
@@ -43,10 +45,10 @@ export const config: GalleryConfig = {
     ScrollbarModule,
     BrowserAnimationsModule,
     GalleryModule.forRoot(config),
+    AvatarModule,
   ],
   providers: [
   ],
-  bootstrap: [AppComponent],
-  // schemas: [ NO_ERRORS_SCHEMA ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

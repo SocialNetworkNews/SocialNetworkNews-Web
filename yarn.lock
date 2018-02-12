@@ -3224,6 +3224,10 @@ is-regex@^1.0.4:
   dependencies:
     has "^1.0.1"
 
+is-retina@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/is-retina/-/is-retina-1.0.3.tgz#d7401b286bea2ae37f62477588de504d0b8647e3"
+
 is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
@@ -4022,6 +4026,13 @@ negotiator@0.6.1:
 ng-gallery@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ng-gallery/-/ng-gallery-1.0.1.tgz#a3a90a91bb33b2d0f624d7e1ff12f2425a57b3ce"
+
+ngx-avatar@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/ngx-avatar/-/ngx-avatar-2.9.0.tgz#7dbeea19c0ea1657040f52afefb1dfa3c661ff46"
+  dependencies:
+    is-retina "^1.0.3"
+    ts-md5 "^1.2.0"
 
 no-case@^2.2.0:
   version "2.3.2"
@@ -6128,6 +6139,10 @@ ts-loader@^3.5.0:
     loader-utils "^1.0.2"
     micromatch "^3.1.4"
     semver "^5.0.1"
+
+ts-md5@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/ts-md5/-/ts-md5-1.2.4.tgz#7030d7ba9134449deedf6f609d4b4509b94a5712"
 
 ts-node@~3.2.0:
   version "3.2.2"

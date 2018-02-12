@@ -34,8 +34,55 @@
 <!--Main Layout-->
 <main class="text-center py-5">
 
-  <div class="container" *ngIf="isBrowser" gallerize>
-    <app-tweet-list [data]="chunkedData"></app-tweet-list>
+  <section class="mb-5 mr-5 ml-5">
+    <mdb-navbar *ngIf="isBrowser" SideClass="navbar navbar-expand-lg navbar-light blue-grey lighten-5" [containerInside]="false">
+      <links class="middle">
+        <!-- TODO use *ngFor -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active waves-light" mdbRippleRadius>
+            <a class="nav-link" routerLinkActive="active">Titelthemen <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item waves-light" mdbRippleRadius>
+            <a class="nav-link">Fotos</a>
+          </li>
+          <li class="nav-item waves-light" mdbRippleRadius>
+            <a class="nav-link">Videos</a>
+          </li>
+        </ul>
+      </links>
+    </mdb-navbar>
+  </section>
+
+  <div class="container-fluid" *ngIf="isBrowser" gallerize>
+    <div class="row">
+      <div class="col-xl-9">
+        <app-tweet-list [data]="chunkedData"></app-tweet-list>
+      </div>
+      <!--Card-->
+      <div class="col-xl-3">
+        <div class="card testimonial-card" style="max-width: 22rem">
+
+          <!--Background color-->
+          <div class="card-up tblue">
+          </div>
+
+          <!--Avatar-->
+          <div class="avatar">
+            <ngx-avatar twitterId="mtrnord" [round]="true" size="120"></ngx-avatar>
+          </div>
+
+          <div class="card-body">
+            <!--Name-->
+            <h4 class="card-title">MTRNord</h4>
+            <hr>
+            <!--Quotation-->
+            <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
+          </div>
+
+        </div>
+        <!--/.Card-->
+      </div>
+    </div>
   </div>
 
 </main>
