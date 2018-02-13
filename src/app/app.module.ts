@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ScrollbarModule } from './utils/scrollbar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {GalleryConfig, GalleryModule} from 'ng-gallery';
 import { AvatarModule } from 'ngx-avatar';
-
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { PaperComponent } from './paper/paper.component';
 import { PapersComponent } from './papers/papers.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
+
+import { ApiService } from './api.service';
 
 
 export const config: GalleryConfig = {
@@ -46,8 +48,10 @@ export const config: GalleryConfig = {
     BrowserAnimationsModule,
     GalleryModule.forRoot(config),
     AvatarModule,
+    HttpClientModule,
   ],
   providers: [
+    ApiService,
   ],
   bootstrap: [AppComponent]
 })
