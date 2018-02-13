@@ -17,12 +17,12 @@
       <div class="card-body">
         <!--Title when Text exists-->
         <!-- Todo Fix for more than one image -->
-        <!-- <h4 class="card-title text-left" *ngIf="(item.text && item.imageURL) || (item.text && !item.imageURL)"><a href="{{item.userprofile_link}}">{{item.username}}</a></h4>
+        <!-- <h4 class="card-title text-left" *ngIf="(item.text && item.imageURL) || (item.text && !item.imageURL)"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Title when no Text exists-->
         <!-- Todo Fix for more than one image -->
-        <h4 class="card-title align-middle" *ngIf="!item.text || !item.imageURL"><a href="{{item.userprofile_link}}">{{item.username}}</a></h4>
+        <h4 class="card-title align-middle" *ngIf="!item.text || !item.imageURL"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Text-->
-        <p class="card-text text-justify" *ngIf="item.text">{{item.text}}</p>
+        <p class="card-text text-justify" *ngIf="item.text" style="white-space: pre-wrap;">{{item.text}}</p>
       </div>
       <!-- Card footer -->
       <div class="card-data">
