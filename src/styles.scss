@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html { overflow:auto; }
-.navbar.navbar-dark, .navbar.navbar-light .breadcrumb .nav-item.active > .nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
+
+.nav-link {
   border-radius: 5px;
 }
 
