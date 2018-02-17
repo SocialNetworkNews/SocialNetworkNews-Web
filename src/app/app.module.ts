@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/bugsnag-js/types/global.d.ts" />
+/*/// <reference path="../../node_modules/bugsnag-js/types/global.d.ts" />*/
 import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +20,6 @@ import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
 
 import { ApiService } from './api.service';
-import {environment} from '../environments/environment';
 import {ServiceWorkerModule} from '@angular/service-worker';
 
 // configure Bugsnag ASAP, before any other imports
