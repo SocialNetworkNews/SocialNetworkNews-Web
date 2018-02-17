@@ -16,7 +16,7 @@
       <!--Card content-->
       <div class="card-body">
         <!--Title when Text exists-->
-        <h4 class="card-title text-left" *ngIf="item.text && ((item.image_urls && item.image_urls[0]) || !(item.image_urls && item.image_urls[0]))"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
+        <h4 class="card-title text-left" *ngIf="item.image_urls && item.image_urls[0]"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Title when no Text exists-->
         <h4 class="card-title align-middle" *ngIf="!item.text || !(item.image_urls && item.image_urls[0])"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Text-->
