@@ -1,6 +1,23 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 
+export interface Tweet {
+  tweets?: (TweetsEntity)[] | null;
+}
+export interface TweetsEntity {
+  username: string;
+  user_id: string;
+  display_name: string;
+  userprofile_link: string;
+  text: string;
+  image_urls?: (string)[] | null;
+  created_at: string;
+  favorites: string;
+  retweets: string;
+  retweet: boolean;
+}
+
+
 @Component({
   selector: 'app-tweet-list',
   templateUrl: './tweet-list.component.html',
@@ -8,7 +25,7 @@ import {ApiService} from '../api.service';
 })
 export class TweetListComponent implements OnInit {
   @Input() uuid;
-  data;
+  data: (TweetsEntity)[][];
 
   constructor(private apiService: ApiService) {}
 
@@ -23,7 +40,7 @@ export class TweetListComponent implements OnInit {
       );
   }
 
-  private chunk(arr, size) {
+  private chunk(arr: (TweetsEntity)[], size: number): (TweetsEntity)[][] {
     const newArr = [];
     for (let i = 0; i < arr.length; i += size) {
       newArr.push(arr.slice(i, i + size));

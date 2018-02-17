@@ -7,20 +7,18 @@
       </div>
       <!--Card image-->
       <!-- Todo Fix for more than one image -->
-      <!--<div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.imageURL">
-        <img [src]="item.imageURL" class="img-fluid" style="z-index: 0">
+      <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.image_urls[0]">
+        <img [src]="item.image_urls[0]" class="img-fluid" style="z-index: 0">
         <a>
           <div class="mask"></div>
         </a>
-      </div>-->
+      </div>
       <!--Card content-->
       <div class="card-body">
         <!--Title when Text exists-->
-        <!-- Todo Fix for more than one image -->
-        <!-- <h4 class="card-title text-left" *ngIf="(item.text && item.imageURL) || (item.text && !item.imageURL)"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
+        <h4 class="card-title text-left" *ngIf="(item.text && item.image_urls[0]) || (item.text && !item.image_urls[0])"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Title when no Text exists-->
-        <!-- Todo Fix for more than one image -->
-        <h4 class="card-title align-middle" *ngIf="!item.text || !item.imageURL"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
+        <h4 class="card-title align-middle" *ngIf="!item.text || !item.image_urls[0]"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
         <!--Text-->
         <p class="card-text text-justify" *ngIf="item.text" style="white-space: pre-wrap;">{{item.text}}</p>
       </div>
