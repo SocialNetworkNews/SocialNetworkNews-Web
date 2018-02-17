@@ -60,7 +60,7 @@ export const config: GalleryConfig = {
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    ServiceWorkerModule.register('/ngsw-worker.js'),
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     ScrollbarModule,
