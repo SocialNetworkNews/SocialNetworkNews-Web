@@ -1,0 +1,10 @@
+{
+  "name": "Social Networks News",
+  "short_name": "Social Network News",
+  "theme_color": "#763d8a",
+  "background_color": "#3F51B5",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": []
+}
