@@ -18,7 +18,7 @@ export class PapersListComponent implements OnInit {
       .subscribe(
         data => { this.data = this.chunk(data.papers, 3); },
         err => console.error('API ERR: ', err),
-        () => console.log('done loading Yesterday')
+        () => console.log('done loading Papers')
       );
   }
 
