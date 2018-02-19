@@ -1,21 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ApiService} from '../api.service';
-
-export interface Tweet {
-  tweets?: (TweetsEntity)[] | null;
-}
-export interface TweetsEntity {
-  username: string;
-  user_id: string;
-  display_name: string;
-  userprofile_link: string;
-  text: string;
-  image_urls?: (string)[] | null;
-  created_at: string;
-  favorites: string;
-  retweets: string;
-  retweet: boolean;
-}
+import {ApiService, TweetsEntity} from '../api.service';
 
 
 @Component({
@@ -34,7 +18,7 @@ export class TweetListComponent implements OnInit {
   getYesterday() {
     this.apiService.getYesterday(this.uuid)
       .subscribe(
-        data => { this.data = this.chunk(data['tweets'], 3); },
+        data => { this.data = this.chunk(data.tweets, 3); },
         err => console.error('API ERR: ', err),
         () => console.log('done loading Yesterday')
       );

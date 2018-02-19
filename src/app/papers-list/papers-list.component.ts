@@ -1,11 +1,33 @@
-import {Component, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService, Paper} from '../api.service';
 
 @Component({
   selector: 'app-papers-list',
   templateUrl: './papers-list.component.html',
   styleUrls: ['./papers-list.component.scss']
 })
-export class PapersListComponent {
-  @Input() data;
+export class PapersListComponent implements OnInit {
+  data: (Paper)[][];
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() { this.getPapers(); }
+
+  getPapers() {
+    this.apiService.getPapers()
+      .subscribe(
+        data => { this.data = this.chunk(data.papers, 3); },
+        err => console.error('API ERR: ', err),
+        () => console.log('done loading Yesterday')
+      );
+  }
+
+  private chunk(arr: (Paper)[], size: number): (Paper)[][] {
+    const newArr = [];
+    for (let i = 0; i < arr.length; i += size) {
+      newArr.push(arr.slice(i, i + size));
+    }
+    return newArr;
+  }
 
 }
