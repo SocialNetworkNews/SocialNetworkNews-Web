@@ -10,9 +10,9 @@
     <!--Card content-->
     <div class="card-body">
       <!--Title when Text exists-->
-      <h4 class="card-title text-left" *ngIf="(item.description && item.paper_image) || (item.description && !item.paper_image)"><a routerLink="/paper/{{item.uuid}}">{{item.title}}</a></h4>
+      <h4 class="card-title text-left" *ngIf="(item.description && item.paper_image) || (item.description && !item.paper_image)"><a routerLink="/paper/{{item.uuid}}">{{item.name}}</a></h4>
       <!--Title when no Text exists-->
-      <h4 class="card-title align-middle" *ngIf="!item.description || !item.paper_image"><a routerLink="/paper/{{item.uuid}}">{{item.title}}</a></h4>
+      <h4 class="card-title align-middle" *ngIf="!item.description || !item.paper_image"><a routerLink="/paper/{{item.uuid}}">{{item.name}}</a></h4>
       <!--Text-->
       <p class="card-text text-justify" *ngIf="item.description">{{item.description}}</p>
     </div>
