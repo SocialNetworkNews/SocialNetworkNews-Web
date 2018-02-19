@@ -16,13 +16,13 @@ export class PapersListComponent implements OnInit {
   getPapers() {
     this.apiService.getPapers()
       .subscribe(
-        data => { this.data = this.chunk(data.papers, 3); },
+        data => { this.data = this.chunk(data, 3); },
         err => console.error('API ERR: ', err),
         () => console.log('done loading Papers')
       );
   }
 
-  private chunk(arr: (Paper)[], size: number): (Paper)[][] {
+  private chunk(arr: Paper[], size: number): (Paper)[][] {
     const newArr = [];
     for (let i = 0; i < arr.length; i += size) {
       newArr.push(arr.slice(i, i + size));

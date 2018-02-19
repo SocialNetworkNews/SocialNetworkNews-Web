@@ -19,10 +19,6 @@ export interface TweetsEntity {
   retweet: boolean;
 }
 
-export interface Papers {
-  papers?: (Paper)[] | null;
-}
-
 export interface Paper {
   name?: string;
   uuid?: string;
@@ -52,7 +48,7 @@ export class ApiService {
     return this.http.get<Tweet>(`${this.url}/paper/${uuid}/yesterday`);
   }
 
-  getPapers(): Observable<Papers> {
-    return this.http.get<Papers>(`${this.url}/papers`);
+  getPapers(): Observable<Paper[]> {
+    return this.http.get<Paper[]>(`${this.url}/papers`);
   }
 }
