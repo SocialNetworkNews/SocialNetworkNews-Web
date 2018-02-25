@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ApiService, Paper} from '../api.service';
 
 @Component({
@@ -6,12 +6,12 @@ import {ApiService, Paper} from '../api.service';
   templateUrl: './papers-list.component.html',
   styleUrls: ['./papers-list.component.scss']
 })
-export class PapersListComponent implements OnInit {
+export class PapersListComponent {
   data: (Paper)[][];
 
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit() { this.getPapers(); }
+  constructor(private apiService: ApiService) {
+    this.getPapers();
+  }
 
   getPapers() {
     this.apiService.getPapers()

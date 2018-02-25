@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ApiService, TweetsEntity} from '../api.service';
 
 
@@ -7,13 +7,13 @@ import {ApiService, TweetsEntity} from '../api.service';
   templateUrl: './tweet-list.component.html',
   styleUrls: ['./tweet-list.component.scss']
 })
-export class TweetListComponent implements OnInit {
+export class TweetListComponent {
   @Input() uuid;
   data: (TweetsEntity)[][];
 
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit() { this.getYesterday(); }
+  constructor(private apiService: ApiService) {
+    this.getYesterday();
+  }
 
   getYesterday() {
     this.apiService.getYesterday(this.uuid)
