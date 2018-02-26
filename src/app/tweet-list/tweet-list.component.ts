@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 
@@ -8,7 +8,7 @@ import {ApiService, TweetsEntity} from '../api.service';
   templateUrl: './tweet-list.component.html',
   styleUrls: ['./tweet-list.component.scss']
 })
-export class TweetListComponent {
+export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[][];
 
@@ -20,6 +20,9 @@ export class TweetListComponent {
         uuid: this.uuid
       }
     });
+  }
+
+  ngOnInit() {
     this.getYesterday();
   }
 
