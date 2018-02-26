@@ -28,7 +28,7 @@ Raven
 
 export class RavenErrorHandler implements ErrorHandler {
   handleError(err: any ): void {
-    if (err !== typeof Error) {
+    if (err instanceof Error) {
       Raven.captureException(err);
     } else {
       Raven.captureException(new Error(JSON.stringify(err)));
