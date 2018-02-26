@@ -1,4 +1,3 @@
-/*/// <reference path="../../node_modules/bugsnag-js/types/global.d.ts" />*/
 import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,9 +6,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ScrollbarModule } from './utils/scrollbar';
 import {GalleryConfig, GalleryModule} from 'ng-gallery';
 import { AvatarModule } from 'ngx-avatar';
-// import BugsnagErrorHandler from './app.error_handler';
-// import bugsnag from 'bugsnag-js';
-
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -22,19 +18,19 @@ import { PapersListComponent } from './papers-list/papers-list.component';
 import { ApiService } from './api.service';
 import {ServiceWorkerModule} from '@angular/service-worker';
 
-// configure Bugsnag ASAP, before any other imports
-/*const bugsnagClient = bugsnag({
-  apiKey: '3113c2b141e7146cce7d4da6707578ff',
-  appVersion: '0.0.1',
-  autoCaptureSessions: true,
-  releaseStage: 'development',
-  notifyReleaseStages: [ 'development', 'production'],
-});*/
+import * as Raven from 'raven-js';
+Raven
+  .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
+    environment: 'development',
+    debug: true,
+  })
+  .install();
 
-// create a factory which will return the bugsnag error handler
-/*export function errorHandlerFactory() {
-  return new BugsnagErrorHandler(bugsnagClient);
-}*/
+export class RavenErrorHandler implements ErrorHandler {
+  handleError(err: any ): void {
+    Raven.captureException(err);
+  }
+}
 
 export const config: GalleryConfig = {
   'gestures': true,
@@ -70,7 +66,7 @@ export const config: GalleryConfig = {
   ],
   providers: [
     ApiService,
-    // { provide: ErrorHandler, useFactory: errorHandlerFactory },
+    { provide: ErrorHandler, useClass: RavenErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
