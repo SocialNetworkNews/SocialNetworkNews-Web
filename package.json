@@ -4,8 +4,6 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod --aot=false",
     "build:ssr": "yarn run build:client-and-server-bundles && yarn run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod --sourcemap && ng build --prod --sourcemap --app 1 --output-hashing=false",
