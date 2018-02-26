@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 
 
@@ -12,6 +13,13 @@ export class TweetListComponent {
   data: (TweetsEntity)[][];
 
   constructor(private apiService: ApiService) {
+    Raven.captureBreadcrumb({
+      message: 'Showing Paper',
+      category: 'paper',
+      data: {
+        uuid: this.uuid
+      }
+    });
     this.getYesterday();
   }
 
@@ -19,7 +27,7 @@ export class TweetListComponent {
     this.apiService.getYesterday(this.uuid)
       .subscribe(
         data => { this.data = this.chunk(data.tweets, 3); },
-        err => console.error('API ERR: ', err),
+        err => Raven.captureException(err),
         () => console.log('done loading Yesterday')
       );
   }

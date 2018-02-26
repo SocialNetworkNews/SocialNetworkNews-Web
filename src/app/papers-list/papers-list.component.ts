@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ApiService, Paper} from '../api.service';
+import * as Raven from 'raven-js';
 
 @Component({
   selector: 'app-papers-list',
@@ -10,6 +11,10 @@ export class PapersListComponent {
   data: (Paper)[][];
 
   constructor(private apiService: ApiService) {
+    Raven.captureBreadcrumb({
+      message: 'Listing Papers',
+      category: 'papers-list'
+    });
     this.getPapers();
   }
 
@@ -17,7 +22,7 @@ export class PapersListComponent {
     this.apiService.getPapers()
       .subscribe(
         data => { this.data = this.chunk(data, 3); },
-        err => console.error('API ERR: ', err),
+        err => Raven.captureException(err),
         () => console.log('done loading Papers')
       );
   }
