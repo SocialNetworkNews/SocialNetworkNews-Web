@@ -27,7 +27,7 @@ export class TweetListComponent {
     this.apiService.getYesterday(this.uuid)
       .subscribe(
         data => { this.data = this.chunk(data.tweets, 3); },
-        err => Raven.captureException(err),
+        err => Raven.captureException(err.toString()),
         () => console.log('done loading Yesterday')
       );
   }

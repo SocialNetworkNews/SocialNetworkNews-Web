@@ -22,7 +22,7 @@ export class PapersListComponent {
     this.apiService.getPapers()
       .subscribe(
         data => { this.data = this.chunk(data, 3); },
-        err => Raven.captureException(err),
+        err => Raven.captureException(err.toString()),
         () => console.log('done loading Papers')
       );
   }
