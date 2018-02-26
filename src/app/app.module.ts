@@ -16,7 +16,6 @@ import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
 
 import { ApiService } from './api.service';
-import {ServiceWorkerModule} from '@angular/service-worker';
 
 import * as Raven from 'raven-js';
 Raven
@@ -29,7 +28,11 @@ Raven
 
 export class RavenErrorHandler implements ErrorHandler {
   handleError(err: any ): void {
-    Raven.captureException(err);
+    if (err !== typeof Error) {
+      Raven.captureException(err);
+    } else {
+      Raven.captureException(new Error(JSON.stringify(err)));
+    }
   }
 }
 

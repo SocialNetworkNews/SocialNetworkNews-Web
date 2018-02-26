@@ -30,7 +30,7 @@ export class TweetListComponent implements OnInit {
     this.apiService.getYesterday(this.uuid)
       .subscribe(
         data => { this.data = this.chunk(data.tweets, 3); },
-        err => Raven.captureException(new Error(JSON.stringify(err))),
+        err => { throw err; },
         () => console.log('done loading Yesterday')
       );
   }
