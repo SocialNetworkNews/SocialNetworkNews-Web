@@ -53,7 +53,8 @@ export class TweetListComponent implements OnInit {
         data => { this.data = this.chunk(data.tweets, 3); },
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
-            positionClass: 'toast-top-center'
+            positionClass: 'toast-top-center',
+            disableTimeOut: true
           });
           throw err;
         },
