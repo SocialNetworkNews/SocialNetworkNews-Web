@@ -33,7 +33,7 @@ export class PapersListComponent {
       .retryWhen(oerror => {
         return oerror
           .mergeMap((error: any) => {
-            if (error.status.startsWith('50')) {
+            if (String(error.status).startsWith('50')) {
               return Observable.of(error.status).delay(1000);
             }
             return Observable.throw({error: 'No retry'});
