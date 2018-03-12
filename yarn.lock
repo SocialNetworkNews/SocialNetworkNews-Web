@@ -27,9 +27,9 @@
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
 
-"@angular/animations@^5.0.0":
-  version "5.2.6"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.6.tgz#433aace8929ce362762dcccdb5044c3945a194bd"
+"@angular/animations@^5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.8.tgz#31cdb49163881323fa5ded41e89683ec5e9ac8b5"
   dependencies:
     tslib "^1.7.1"
 
@@ -248,7 +248,7 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
-"@types/node@*", "@types/node@^9.4.6":
+"@types/node@*":
   version "9.4.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
 
@@ -4055,6 +4055,12 @@ ngx-avatar@^2.9.0:
   dependencies:
     is-retina "^1.0.3"
     ts-md5 "^1.2.0"
+
+ngx-toastr@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-8.3.0.tgz#4f79df590484de1caa2e29f9bee4cbf2c5aff097"
+  dependencies:
+    tslib "^1.7.1"
 
 no-case@^2.2.0:
   version "2.3.2"

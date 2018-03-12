@@ -18,6 +18,7 @@ import { PapersListComponent } from './papers-list/papers-list.component';
 import { ApiService } from './api.service';
 
 import * as Raven from 'raven-js';
+import {ToastrModule} from 'ngx-toastr';
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -66,6 +67,7 @@ export const config: GalleryConfig = {
     GalleryModule.forRoot(config),
     AvatarModule,
     HttpClientModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [
     ApiService,

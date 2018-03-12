@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
+import {Observable} from 'rxjs/Observable';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[][];
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -28,9 +30,24 @@ export class TweetListComponent implements OnInit {
 
   getYesterday() {
     this.apiService.getYesterday(this.uuid)
+      // TODO: Better variable naming
+      .retryWhen(oerror => {
+        return oerror
+          .flatMap((error: any) => {
+            if (error.status.startsWith('50')) {
+              return Observable.of(error.status).delay(1000);
+            }
+            return Observable.throw({error: 'No retry'});
+          })
+          .take(5)
+          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries)'}));
+      })
       .subscribe(
         data => { this.data = this.chunk(data.tweets, 3); },
-        err => { throw err; },
+        err => {
+          this.toastr.error(err, 'Error connecting API');
+          throw err;
+        },
         () => console.log('done loading Yesterday')
       );
   }
