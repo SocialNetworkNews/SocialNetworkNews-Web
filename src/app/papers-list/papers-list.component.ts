@@ -4,6 +4,10 @@ import * as Raven from 'raven-js';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/retryWhen';
+import 'rxjs/add/observable/flatMap';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/concat';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
