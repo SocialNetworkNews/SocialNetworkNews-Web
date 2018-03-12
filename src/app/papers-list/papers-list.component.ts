@@ -39,7 +39,8 @@ export class PapersListComponent {
             return Observable.throw({error: 'No retry'});
           })
           .take(5)
-          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries)'}));
+          // TODO: Allow to link to a Status Page
+          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach out API Server :('}));
       })
       .subscribe(
         data => { this.data = this.chunk(data, 3); },
