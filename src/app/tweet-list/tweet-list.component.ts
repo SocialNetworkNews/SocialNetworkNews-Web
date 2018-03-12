@@ -4,7 +4,7 @@ import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/retryWhen';
-import 'rxjs/add/observable/mergeMap';
+import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
