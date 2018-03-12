@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/retryWhen';
 import {ToastrService} from 'ngx-toastr';
 
 

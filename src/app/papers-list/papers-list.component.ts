@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {ApiService, Paper} from '../api.service';
 import * as Raven from 'raven-js';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/retryWhen';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
