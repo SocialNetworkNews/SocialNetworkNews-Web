@@ -45,7 +45,9 @@ export class TweetListComponent implements OnInit {
       .subscribe(
         data => { this.data = this.chunk(data.tweets, 3); },
         err => {
-          this.toastr.error(err, 'Error connecting API');
+          this.toastr.error(err, 'Error connecting API', {
+            positionClass: 'toast-top-center'
+          });
           throw err;
         },
         () => console.log('done loading Yesterday')
