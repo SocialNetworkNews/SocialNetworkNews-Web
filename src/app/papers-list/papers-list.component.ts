@@ -8,6 +8,7 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
+import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
