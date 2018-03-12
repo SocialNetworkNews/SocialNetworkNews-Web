@@ -4,7 +4,7 @@ import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/retryWhen';
-import 'rxjs/add/observable/flatMap';
+import 'rxjs/add/observable/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
@@ -39,7 +39,7 @@ export class TweetListComponent implements OnInit {
       // TODO: Better variable naming
       .retryWhen(oerror => {
         return oerror
-          .flatMap((error: any) => {
+          .mergeMap((error: any) => {
             if (error.status.startsWith('50')) {
               return Observable.of(error.status).delay(1000);
             }
