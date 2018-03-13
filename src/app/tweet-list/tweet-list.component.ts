@@ -43,8 +43,10 @@ export class TweetListComponent implements OnInit {
           .mergeMap((error: any) => {
             if (String(error.status).startsWith('50')) {
               return Observable.of(error.status).delay(1000);
+            } else if (error.status === 404) {
+              return Observable.throw({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
             }
-            return Observable.throw({error: 'No retry'});
+            return Observable.throw({error: 'Unknown error'});
           })
           .take(5)
           // TODO: Allow to link to a Status Page

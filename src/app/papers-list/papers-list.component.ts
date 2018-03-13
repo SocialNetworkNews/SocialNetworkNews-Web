@@ -36,7 +36,7 @@ export class PapersListComponent {
             if (String(error.status).startsWith('50')) {
               return Observable.of(error.status).delay(1000);
             }
-            return Observable.throw({error: 'No retry'});
+            return Observable.throw({error: 'Unknown error'});
           })
           .take(5)
           // TODO: Allow to link to a Status Page
