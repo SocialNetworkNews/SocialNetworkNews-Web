@@ -3,7 +3,6 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ScrollbarModule } from './utils/scrollbar';
 import {GalleryConfig, GalleryModule} from 'ng-gallery';
 import { AvatarModule } from 'ngx-avatar';
 
@@ -62,7 +61,6 @@ export const config: GalleryConfig = {
     BrowserModule.withServerTransition({appId: 'snn-app'}),
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
-    ScrollbarModule,
     BrowserAnimationsModule,
     GalleryModule.forRoot(config),
     AvatarModule,
