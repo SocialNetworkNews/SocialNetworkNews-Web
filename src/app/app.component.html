@@ -1,9 +1,9 @@
 <header>
-  <a href="#" class="header__icon" id="header__icon"></a>
-  <a href="#" class="header__logo">Social Networks News</a>
+  <a routerLink="/" [routerLinkActive]="checkCurrent()" class="header__icon" id="header__icon"></a>
+  <a routerLink="/" [routerLinkActive]="checkCurrent()" class="header__logo">Social Networks News</a>
 
   <nav class="menu">
-    <a routerLink="" [routerLinkActive]="checkCurrent()">Home</a>
+    <a routerLink="/" [routerLinkActive]="checkCurrent()">Home</a>
     <a routerLink="/features" [routerLinkActive]="checkCurrent('/features')">Features</a>
     <a routerLink="/papers" [routerLinkActive]="checkCurrent('/papers')">Papers</a>
   </nav>
