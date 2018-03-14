@@ -10,9 +10,6 @@
   @media (min-width: 60em) {
     grid-template-columns: repeat(4, 1fr);
   }
-  img {
-    max-height: 250px;
-  }
 }
 
 
@@ -26,7 +23,7 @@
   display: block;
 }
 
-.grid > article div {
+.grid > article > div {
   position: relative;
   display: inline-block;
   /* if you need ie6/7 support */
@@ -35,7 +32,7 @@
 }
 
 .text {
-  padding: 0 20px 20px;
+  padding: 0 20px 0 20px;
 }
 .text > ul {
   padding: 10px;
