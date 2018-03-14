@@ -19,10 +19,21 @@
 .grid > article {
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  text-align: center;
 }
 .grid > article img {
   max-width: 100%;
+  display: block;
 }
+
+.grid > article div {
+  position: relative;
+  display: inline-block;
+  /* if you need ie6/7 support */
+  *display: inline;
+  zoom: 1;
+}
+
 .text {
   padding: 0 20px 20px;
 }
