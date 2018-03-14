@@ -1,20 +1,20 @@
 <div class="grid">
-  <div [class]="'item-' + i" *ngFor="let item of data; let i = index">
+  <div *ngFor="let item of data">
     <a href="{{item.tweet_link}}" class="card">
       <!--Retweet Badge-->
       <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
         <i class="fa fa-retweet"></i>
       </div>
-      <div *ngIf="item.image_urls && item.image_urls[0]" class="thumb" [style.background-image]="'url('+ item.image_urls[0] +')'"></div>
-      <article>
-        <h1>{{item.display_name}}</h1>
+      <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+      <div class="text">
+        <h3>{{item.display_name}}</h3>
         <p *ngIf="item.text">{{item.text}}</p>
         <ul>
           <li><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</li>&nbsp;
           <li><i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}</li>&nbsp;
           <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
         </ul>
-      </article>
+      </div>
     </a>
   </div>
 </div>

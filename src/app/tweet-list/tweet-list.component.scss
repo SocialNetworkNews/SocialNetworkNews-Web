@@ -1,8 +1,8 @@
 .grid {
   display: grid;
-  width: 100%;
   grid-template-columns: auto;
   grid-gap: 20px;
+  align-items: end;
   @media (min-width: 30em) {
     grid-template-columns: 1fr 1fr;
   }
@@ -12,81 +12,25 @@
   }
 }
 
-.card {
-  background: white;
-  text-decoration: none;
-  color: #444;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
 
-  // sets up hover state
-  position: relative;
-  top: 0;
-  transition: all .1s ease-in;
 
-  &:hover {
-    top: -2px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-  }
-
-  article {
-    padding: 20px;
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    position: absolute;
-    bottom: 0;
-  }
-
-  h1 {
-    font-size: 20px;
-    margin: 0;
-    color: #333;
-  }
-
-  p {
-    flex: 1;
-    line-height: 1.4;
-  }
-
-  span {
-    font-size: 12px;
-    font-weight: bold;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    margin: 2em 0 0 0;
-  }
-
-  ul {
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 0;
-    font-size: .9rem;
-    li {
-      display: inline;
-    }
-  }
-
-  .thumb {
-    padding-bottom: 60%;
-    background-size: cover;
-    background-position: center center;
-    height: 250px;
+.grid > article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+}
+.grid > article img {
+  max-width: 100%;
+}
+.text {
+  padding: 0 20px 20px;
+}
+.text > ul {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: .9rem;
+  width: 100%;
+  li {
+    display: inline;
   }
 }
-
-/*.item-1 {
-  @media (min-width: 60em) {
-    grid-column: 1 / span 2;
-
-    h1 {
-      font-size: 24px;
-    }
-  }
-}*/
