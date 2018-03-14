@@ -16,36 +16,5 @@
         </ul>
       </article>
     </a>
-    <div class="card">
-      <!--Retweet Badge-->
-      <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
-        <i class="fa fa-retweet"></i>
-      </div>
-      <!--Card image-->
-      <!-- Todo Fix for more than one image -->
-      <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.image_urls && item.image_urls[0]">
-        <img [src]="item.image_urls[0]" class="img-fluid" style="z-index: 0">
-        <a>
-          <div class="mask"></div>
-        </a>
-      </div>
-      <!--Card content-->
-      <div class="card-body">
-        <!--Title when Text exists-->
-        <h4 class="card-title text-left" *ngIf="item.image_urls && item.image_urls[0]"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
-        <!--Title when no Text exists-->
-        <h4 class="card-title align-middle" *ngIf="!item.text || !(item.image_urls && item.image_urls[0])"><a href="{{item.userprofile_link}}">{{item.display_name}}</a></h4>
-        <!--Text-->
-        <p class="card-text text-justify" *ngIf="item.text" style="white-space: pre-wrap;">{{item.text}}</p>
-      </div>
-      <!-- Card footer -->
-      <div class="card-data">
-        <ul>
-          <li><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</li>&nbsp;
-          <li><i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}</li>&nbsp;
-          <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
-        </ul>
-      </div>
-    </div>
   </div>
 </div>
