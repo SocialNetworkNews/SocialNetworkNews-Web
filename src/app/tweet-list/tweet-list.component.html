@@ -1,6 +1,6 @@
 <div class="grid">
-  <div *ngFor="let item of data">
-    <a href="{{item.tweet_link}}">
+  <article *ngFor="let item of data">
+    <!--<a href="{{item.tweet_link}}">-->
       <!--Retweet Badge-->
       <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
         <i class="fa fa-retweet"></i>
@@ -15,6 +15,6 @@
           <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
         </ul>
       </div>
-    </a>
-  </div>
+    <!--</a>-->
+  </article>
 </div>
