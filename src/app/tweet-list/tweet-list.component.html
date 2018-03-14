@@ -1,5 +1,5 @@
 <div class="grid">
-  <div [class]="'item-' + String(data.length)" *ngFor="let item of data">
+  <div [class]="'item-' + i" *ngFor="let item of data; let i = index">
     <a href="{{item.tweet_link}}" class="card">
       <!--Retweet Badge-->
       <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
