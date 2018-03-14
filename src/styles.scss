@@ -1,6 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
 html { overflow:auto; }
 
+/* VARIABLES */
+$header-bg: #f9a825;
+$menu-width: 250px!default;
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.main-container {
+  padding-top: 66px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+
+  line-height: 66px;
+  color: #fff;
+
+  background-color: $header-bg;
+}
+
+.header__logo {
+  font-weight: 700;
+  padding: 0 25px;
+  float: left;
+}
+
+/* MENU */
+.menu {
+  float: left;
+
+  a {
+    padding: 0 10px;
+  }
+
+  a:hover {
+    color: #c5cae9;
+  }
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 768px) {
+  header {
+    position: static;
+  }
+
+  .header__icon {
+    position: relative;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 66px;
+
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1rem;
+      height: 0;
+      top: 16px;
+      left: 15px;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: darken($header-bg, 5);
+    /*    overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;*/
+
+    width: $menu-width;
+
+    transform: translateX($menu-width * -1);
+    a {
+      display: block;
+      height: 40px;
+
+      text-align: center;
+      line-height: 40px;
+
+      border-bottom: 1px solid $header-bg;
+    }
+  }
+}
+
+
+// OLD CSS
+/*
 .nav-link {
   border-radius: 5px;
 }
@@ -103,6 +214,7 @@ html { overflow:auto; }
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
 }
+*/
 
 /* The ribbons by https://codepen.io/eode9/pen/twkKm*/
 

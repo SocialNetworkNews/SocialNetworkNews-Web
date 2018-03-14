@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentUrl: string;
+  constructor(router: Router) {
+    router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd ) {
+        this.currentUrl = value.url;
+      }
+    });
+  }
+
+  checkCurrent(path = '/'): string {
+    return (this.currentUrl === path) ? null : 'active';
+  }
 
 }

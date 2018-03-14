@@ -1,6 +1,22 @@
-<div class="row mb-5" *ngFor="let rows of data">
-  <div class="card-deck col-md-4" *ngFor="let item of rows">
-    <div class="card card-cascade">
+<div class="rowGrid">
+  <div [class]="'item-' + String(rows.length)" *ngFor="let item of data">
+    <a href="{{item.tweet_link}}" class="card">
+      <!--Retweet Badge-->
+      <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
+        <i class="fa fa-retweet"></i>
+      </div>
+      <div *ngIf="item.image_urls && item.image_urls[0]" class="thumb" [style.background-image]="'url('+ item.image_urls[0] +')'"></div>
+      <article>
+        <h1>{{item.display_name}}</h1>
+        <p *ngIf="item.text">{{item.text}}</p>
+        <ul>
+          <li><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</li>&nbsp;
+          <li><i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}</li>&nbsp;
+          <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
+        </ul>
+      </article>
+    </a>
+    <div class="card">
       <!--Retweet Badge-->
       <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
         <i class="fa fa-retweet"></i>

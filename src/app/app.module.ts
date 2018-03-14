@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {GalleryConfig, GalleryModule} from 'ng-gallery';
 import { AvatarModule } from 'ngx-avatar';
 
@@ -59,7 +59,7 @@ export const config: GalleryConfig = {
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),
-    MDBBootstrapModule.forRoot(),
+    // MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     GalleryModule.forRoot(config),

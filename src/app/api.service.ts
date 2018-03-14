@@ -11,6 +11,7 @@ export interface TweetsEntity {
   user_id: string;
   display_name: string;
   userprofile_link: string;
+  tweet_link?: string;
   text: string;
   image_urls?: (string)[];
   created_at: string;

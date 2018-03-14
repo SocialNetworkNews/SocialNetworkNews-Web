@@ -1,56 +1,22 @@
-<header>
-  <mdb-navbar *ngIf="isBrowser" SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
-    <logo>
-      <a class="logo navbar-brand" href="#"><strong>Social Networks News</strong></a>
-    </logo>
-    <links>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item waves-light" mdbRippleRadius>
-          <a class="nav-link" routerLink="">Home</a>
-        </li>
-        <li class="nav-item waves-light" mdbRippleRadius>
-          <a class="nav-link">Features</a>
-        </li>
-        <li class="nav-item active waves-light" mdbRippleRadius>
-          <a class="nav-link" routerLink="/papers" routerLinkActive="active">Papers <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </links>
-  </mdb-navbar>
-  <!-- Main -->
-  <div class="view intro hm-orange-light">
-    <div class="full-bg-img flex-center">
-      <div class="container text-center white-text wow fadeInUp">
-        <h2>{{data.name}}</h2>
-        <br>
-        <h5>{{data.description}}</h5>
-      </div>
+<!--<div class="view intro hm-orange-light">
+  <div class="full-bg-img flex-center">
+    <div class="container text-center white-text wow fadeInUp">
+      <h2>{{data.name}}</h2>
+      <br>
+      <h5>{{data.description}}</h5>
     </div>
   </div>
-  <!-- /.Main -->
-</header>
-<!--Main Navigation-->
+</div>-->
 
 <!--Main Layout-->
 <main class="text-center py-5">
 
   <section class="mb-5 mr-5 ml-5">
-    <mdb-navbar *ngIf="isBrowser" SideClass="navbar navbar-expand-lg navbar-light blue-grey lighten-5" [containerInside]="false">
-      <links class="middle">
-        <!-- TODO use *ngFor -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active waves-light" mdbRippleRadius>
-            <a class="nav-link" routerLinkActive="active">Titelthemen <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item waves-light" mdbRippleRadius>
-            <a class="nav-link">Fotos</a>
-          </li>
-          <li class="nav-item waves-light" mdbRippleRadius>
-            <a class="nav-link">Videos</a>
-          </li>
-        </ul>
-      </links>
-    </mdb-navbar>
+    <nav class="menu">
+      <a routerLinkActive="active">Titelthemen</a>
+      <a>Fotos</a>
+      <a>Videos</a>
+    </nav>
   </section>
 
   <div class="container-fluid" *ngIf="isBrowser" gallerize>
