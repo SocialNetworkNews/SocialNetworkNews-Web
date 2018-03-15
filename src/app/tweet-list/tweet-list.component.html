@@ -8,12 +8,12 @@
         </span>
       </div>
       <div>
-        <a [href]="'#img'+i" target="_self">
+        <a [fragment]="'#img'+i" >
           <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
         </a>
 
         <!-- lightbox container hidden with CSS -->
-        <a href="#_" target="_self" class="lightbox" [id]="'#img'+i">
+        <a fragment="#_" target="_self" class="lightbox" [id]="'#img'+i">
           <img src="http://insomnia.rest/images/screens/main.png">
         </a>
 
