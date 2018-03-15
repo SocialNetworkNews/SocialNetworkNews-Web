@@ -61,13 +61,14 @@ nav {
   }
 }
 
-.main-container {
+main {
   grid-area: main;
+  padding-top: 7rem;
 }
 
 .wrapper {
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 0.4rem;
   grid-template-areas:
     "header"
     "main"
