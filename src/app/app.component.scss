@@ -11,7 +11,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0.5rem 1rem 0.5rem;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   @media (min-width: 40rem) {
@@ -32,7 +32,7 @@ header {
 
 .logo--link {
   display: block;
-  border: 1px solid #ccc;
+  color: #333;
   &:hover {
     opacity: .7;
   }
