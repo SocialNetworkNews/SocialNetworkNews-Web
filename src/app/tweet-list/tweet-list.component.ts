@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewChecked} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -10,7 +10,6 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
-import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -18,12 +17,11 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './tweet-list.component.html',
   styleUrls: ['./tweet-list.component.scss']
 })
-export class TweetListComponent implements OnInit, AfterViewChecked {
+export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
-  private fragment: Observable<string>;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private route: ActivatedRoute) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -35,15 +33,6 @@ export class TweetListComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.getYesterday();
-    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
-  }
-
-  ngAfterViewChecked(): void {
-    try {
-      if (this.fragment) {
-        document.querySelector('#' + this.fragment).scrollIntoView();
-      }
-    } catch (e) { }
   }
 
   getYesterday() {
