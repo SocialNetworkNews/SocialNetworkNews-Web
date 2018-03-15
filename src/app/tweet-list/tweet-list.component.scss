@@ -23,7 +23,7 @@
   display: block;
 }
 
-.grid > article > div {
+.grid > article > div > not(.card-ribbon){
   position: relative;
   display: inline-block;
   /* if you need ie6/7 support */

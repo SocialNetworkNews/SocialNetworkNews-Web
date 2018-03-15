@@ -2,8 +2,10 @@
   <article *ngFor="let item of data">
     <!--<a href="{{item.tweet_link}}">-->
       <!--Retweet Badge-->
-      <div class="card-ribbon card-ribbon-top card-ribbon-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
-        <i class="fa fa-retweet"></i>
+      <div class="ribbon ribbon-top-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
+        <span>
+          <i class="fa fa-retweet"></i>
+        </span>
       </div>
       <div>
         <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
