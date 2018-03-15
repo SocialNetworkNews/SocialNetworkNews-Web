@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {GalleryConfig, GalleryModule} from 'ng-gallery';
 import { AvatarModule } from 'ngx-avatar';
 
 import { AppComponent } from './app.component';
@@ -36,18 +34,6 @@ export class RavenErrorHandler implements ErrorHandler {
   }
 }
 
-export const config: GalleryConfig = {
-  'gestures': true,
-  'thumbnails': null,
-  'navigation': null,
-  'imageSize': 'contain',
-  'style': {
-    'width': '57rem',
-    'height': '32rem',
-    'padding-top': '2rem'
-  },
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +48,6 @@ export const config: GalleryConfig = {
     // MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    GalleryModule.forRoot(config),
     AvatarModule,
     HttpClientModule,
     ToastrModule.forRoot(), // ToastrModule added
