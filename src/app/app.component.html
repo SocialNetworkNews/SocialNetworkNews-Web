@@ -1,14 +1,21 @@
-<header>
-  <a routerLink="/" [routerLinkActive]="checkCurrent()" class="header__icon" id="header__icon"></a>
-  <a routerLink="/" [routerLinkActive]="checkCurrent()" class="header__logo">Social Networks News</a>
+<div class="wrapper">
+  <header>
+    <div class="header--inner">
+      <div class="logo">
+        <a href="#" class="logo--link">
+          <h2>Social Networks News</h2>
+          <!--<img class="logo--image" src="https://via.placeholder.com/150x50/eeeeee/333333/?text=Logo" />-->
+        </a>
+      </div>
+      <nav>
+        <a class="nav--link" routerLink="/" [routerLinkActive]="checkCurrent()">Home</a>
+        <a class="nav--link" routerLink="/features" [routerLinkActive]="checkCurrent('/features')">Features</a>
+        <a class="nav--link" routerLink="/papers" [routerLinkActive]="checkCurrent('/papers')">Papers</a>
+      </nav>
+    </div>
 
-  <nav class="menu">
-    <a routerLink="/" [routerLinkActive]="checkCurrent()">Home</a>
-    <a routerLink="/features" [routerLinkActive]="checkCurrent('/features')">Features</a>
-    <a routerLink="/papers" [routerLinkActive]="checkCurrent('/papers')">Papers</a>
-  </nav>
-
-</header>
-<div class="main-container">
-  <router-outlet></router-outlet>
+  </header>
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
 </div>

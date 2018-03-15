@@ -2,12 +2,98 @@
 $header-bg: #f9a825;
 $menu-width: 250px!default;
 
+header {
+  order: 1;
+  grid-area: header;
+}
+
+.header--inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  @media (min-width: 40rem) {
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.logo {
+
+}
+
+.logo--link {
+  display: block;
+  border: 1px solid #ccc;
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.logo--image {
+  display: block;
+}
+
+nav {
+  margin-top: 1rem;
+  @media (min-width: 40rem) {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.nav--link {
+  display: inline-block;
+  color: #333;
+  padding: .5rem .75rem;
+  text-decoration: none;
+  &:hover {
+    background-color: #eee;
+    color: #555;
+  }
+}
+
+.main-container {
+  grid-area: main;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "header"
+    "main"
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "content content";
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* HEADER */
+/* HEADER *//*
 header {
   position: fixed;
   left: 0;
@@ -28,7 +114,7 @@ header {
   float: left;
 }
 
-/* MENU */
+/* MENU *//*
 .menu {
   float: left;
 
@@ -41,7 +127,7 @@ header {
   }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE *//*
 @media only screen and (max-width: 768px) {
   header {
     position: static;
@@ -75,7 +161,7 @@ header {
     background-color: darken($header-bg, 5);
     /*    overflow-y: scroll;
         -webkit-overflow-scrolling: touch;*/
-
+/*
     width: $menu-width;
 
     transform: translateX($menu-width * -1);
@@ -90,3 +176,4 @@ header {
     }
   }
 }
+*/
