@@ -2,7 +2,7 @@
   <article *ngFor="let item of data">
     <!--<a href="{{item.tweet_link}}">-->
       <!--Retweet Badge-->
-      <div class="ribbon ribbon-top-left tblue" *ngIf="item.retweet == true" style="max-width: 22rem">
+      <div class="ribbon ribbon-top-left" *ngIf="item.retweet == true" style="max-width: 22rem">
         <span>
           <i class="fa fa-retweet"></i>
         </span>
