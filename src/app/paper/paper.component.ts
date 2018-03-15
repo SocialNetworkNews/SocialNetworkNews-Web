@@ -10,7 +10,7 @@ import {ApiService, Paper} from '../api.service';
   encapsulation: ViewEncapsulation.None
 })
 export class PaperComponent implements OnInit {
-  private uuid: string;
+  uuid: string;
   isBrowser: boolean;
   data: Paper;
 
