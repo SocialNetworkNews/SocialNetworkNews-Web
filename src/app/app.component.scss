@@ -62,7 +62,7 @@ nav {
 }
 
 .main {
-  grid-area: main;
+  grid-area: content;
   padding-top: 7rem;
 }
 
@@ -71,7 +71,7 @@ nav {
   grid-gap: 0.4rem;
   grid-template-areas:
     "header"
-    "main"
+    "content"
 }
 
 @media (min-width: 500px) {
