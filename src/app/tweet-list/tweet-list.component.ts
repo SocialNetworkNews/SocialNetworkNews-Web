@@ -31,15 +31,8 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  public goTo(el: any, which: string): void {
-    console.log(el)
-    console.log(typeof el)
-    el.forEach((value: ElementRef, index: number, array: ElementRef[]) => {
-        if (value.nativeElement.id === which) {
-          console.log(value);
-          value.nativeElement.scrollIntoView();
-        }
-    });
+  public goTo(el: HTMLAnchorElement): void {
+    el.scrollIntoView();
   }
 
   ngOnInit() {

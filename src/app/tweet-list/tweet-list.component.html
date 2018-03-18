@@ -1,5 +1,5 @@
 <div #container class="grid">
-  <article *ngFor="let item of data; let i = index">
+  <article *ngFor="let item of data">
     <!--<a href="{{item.tweet_link}}">-->
       <!--Retweet Badge-->
       <div class="ribbon ribbon-top-left" *ngIf="item.retweet == true" style="max-width: 22rem">
@@ -8,12 +8,12 @@
         </span>
       </div>
       <div style="z-index: 2;">
-        <a (click)="goTo(lightboxItem, i)" >
+        <a (click)="goTo(lightboxItem)" >
           <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
         </a>
 
         <!-- lightbox container hidden with CSS -->
-        <a href="#_" class="lightbox" id="#{{i}}" #lightboxItem>
+        <a href="#_" class="lightbox" #lightboxItem>
           <img src="http://insomnia.rest/images/screens/main.png">
         </a>
 
