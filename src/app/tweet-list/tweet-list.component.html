@@ -7,7 +7,27 @@
           <i class="fa fa-retweet"></i>
         </span>
       </div>
-      <div style="z-index: 2; position: absolute;">
+      <div *ngIf="item.image_urls && item.image_urls[0];else normal" style="z-index: 2; position: absolute;">
+        <a pageScroll href="#img{{i}}" >
+          <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
+        </a>
+
+        <!-- lightbox container hidden with CSS -->
+        <a pageScroll href="#_" class="lightbox" [id]="'#img'+i">
+          <img src="http://insomnia.rest/images/screens/main.png">
+        </a>
+
+        <div class="text">
+          <h3>{{item.display_name}}</h3>
+          <p *ngIf="item.text">{{item.text}}</p>
+          <ul>
+            <li><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</li>&nbsp;
+            <li><i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}</li>&nbsp;
+            <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
+          </ul>
+        </div>
+      </div>
+      <div #normal>
         <a pageScroll href="#img{{i}}" >
           <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
         </a>
