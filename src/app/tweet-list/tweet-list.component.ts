@@ -38,7 +38,11 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  public goTo(el): void {
+  reload() {
+    window.location.reload();
+  }
+
+  goTo(el): void {
     console.log(el)
     console.log(typeof el)
     el.style.display = 'block';
