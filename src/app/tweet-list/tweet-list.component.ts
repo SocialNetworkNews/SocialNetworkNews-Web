@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, QueryList} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -38,15 +38,12 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  reload() {
-    window.location.reload();
+  hide(el) {
+    el.style.display = '';
   }
 
   goTo(el): void {
-    console.log(el)
-    console.log(typeof el)
     el.style.display = 'block';
-    el.scrollIntoView();
   }
 
   ngOnInit() {
