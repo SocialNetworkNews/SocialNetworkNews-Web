@@ -12,6 +12,7 @@ const routes: Routes = [
   {
     path: 'paper/:paperUUID',
     component: PaperComponent,
+    runGuardsAndResolvers: 'always',
   },
   {
     path: 'papers',
