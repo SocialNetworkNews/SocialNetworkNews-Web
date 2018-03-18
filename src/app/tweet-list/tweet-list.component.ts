@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChildren} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -10,8 +10,6 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
-import {PageScrollInstance, PageScrollService} from 'ng2-page-scroll';
-import {DOCUMENT} from '@angular/common';
 
 
 @Component({
@@ -22,11 +20,9 @@ import {DOCUMENT} from '@angular/common';
 export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
+  @ViewChildren
 
-  @ViewChild('container')
-  private container: ElementRef;
-
-  constructor(private apiService: ApiService, private toastr: ToastrService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -36,10 +32,13 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  public goTo(anchor: string): void {
-    console.log(anchor);
-    const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: anchor, scrollingViews: [this.container.nativeElement]});
-    this.pageScrollService.start(pageScrollInstance);
+  public goTo(el: HTMLElement[], which: string): void {
+    el.forEach((value: HTMLElement, index: number, array: HTMLElement[]) => {
+        if (value.id === which) {
+          console.log(value);
+          value.scrollIntoView();
+        }
+    });
   }
 
   ngOnInit() {
