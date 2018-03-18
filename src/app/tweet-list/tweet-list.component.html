@@ -8,14 +8,14 @@
         </span>
       </div>
       <div style="z-index: 2;">
-        <button (click)="goTo('#img'+i)" >
+        <a (click)="goTo('#img'+i)" >
           <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
-        </button>
+        </a>
 
         <!-- lightbox container hidden with CSS -->
-        <button (click)="goTo('#_')" class="lightbox" [id]="'#img'+i">
+        <a (click)="goTo('#_')" class="lightbox" [id]="'#img'+i">
           <img src="http://insomnia.rest/images/screens/main.png">
-        </button>
+        </a>
 
         <div class="text">
           <h3>{{item.display_name}}</h3>

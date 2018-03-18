@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -34,6 +34,7 @@ export class TweetListComponent implements OnInit {
   }
 
   public goTo(anchor: string): void {
+    console.log(anchor);
     const pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, anchor);
     this.pageScrollService.start(pageScrollInstance);
   }
