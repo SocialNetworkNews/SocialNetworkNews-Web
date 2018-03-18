@@ -1,5 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ApiService, Paper} from '../api.service';
 
@@ -11,11 +10,9 @@ import {ApiService, Paper} from '../api.service';
 })
 export class PaperComponent implements OnInit {
   uuid: string;
-  isBrowser: boolean;
   data: Paper;
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object, private route: ActivatedRoute, private apiService: ApiService) {
-    this.isBrowser = isPlatformBrowser(platformId);
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {
     this.uuid = this.route.snapshot.params.paperUUID;
   }
 

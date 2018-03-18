@@ -1,5 +1,4 @@
-import {Component, Inject, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -8,10 +7,5 @@ import {isPlatformBrowser} from '@angular/common';
   encapsulation: ViewEncapsulation.None
 })
 export class MainComponent {
-  isBrowser: boolean;
-
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
 
 }

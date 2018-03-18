@@ -1,5 +1,4 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-papers',
@@ -7,11 +6,4 @@ import {isPlatformBrowser} from '@angular/common';
   styleUrls: ['./papers.component.scss']
 })
 export class PapersComponent {
-  pageTitle = 'Find Papers';
-  pageSubtitle = 'Get the full blast of different Newspapers';
-  isBrowser: boolean;
-
-  constructor( @Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
 }
