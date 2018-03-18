@@ -12,7 +12,6 @@ const routes: Routes = [
   {
     path: 'paper/:paperUUID',
     component: PaperComponent,
-    runGuardsAndResolvers: 'always',
   },
   {
     path: 'papers',
@@ -22,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule
