@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -23,6 +23,9 @@ export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
 
+  @ViewChild('container')
+  private container: ElementRef;
+
   constructor(private apiService: ApiService, private toastr: ToastrService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
@@ -35,7 +38,7 @@ export class TweetListComponent implements OnInit {
 
   public goTo(anchor: string): void {
     console.log(anchor);
-    const pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, anchor);
+    const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: anchor, scrollingViews: [this.container.nativeElement]});
     this.pageScrollService.start(pageScrollInstance);
   }
 
