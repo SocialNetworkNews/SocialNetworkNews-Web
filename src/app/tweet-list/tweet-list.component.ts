@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChildren} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, QueryList} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
@@ -31,11 +31,11 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  public goTo(el: HTMLElement[], which: string): void {
-    el.forEach((value: HTMLElement, index: number, array: HTMLElement[]) => {
-        if (value.id === which) {
+  public goTo(el: QueryList<ElementRef>, which: string): void {
+    el.toArray().forEach((value: ElementRef, index: number, array: ElementRef[]) => {
+        if (value.nativeElement.id === which) {
           console.log(value);
-          value.scrollIntoView();
+          value.nativeElement.scrollIntoView();
         }
     });
   }
