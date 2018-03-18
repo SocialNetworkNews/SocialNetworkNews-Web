@@ -20,7 +20,6 @@ import {ToastrService} from 'ngx-toastr';
 export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
-  @ViewChildren
 
   constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
