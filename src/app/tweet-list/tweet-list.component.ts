@@ -31,9 +31,11 @@ export class TweetListComponent implements OnInit {
     });
   }
 
-  public goTo(el: ElementRef): void {
-    el.nativeElement.style.display = 'block';
-    el.nativeElement.scrollIntoView();
+  public goTo(el): void {
+    console.log(el)
+    console.log(typeof el)
+    el.style.display = 'block';
+    el.scrollIntoView();
   }
 
   ngOnInit() {
