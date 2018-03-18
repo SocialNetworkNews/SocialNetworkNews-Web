@@ -13,7 +13,7 @@
         </a>
 
         <!-- lightbox container hidden with CSS -->
-        <a href="#_" class="lightbox" #lightboxItem>
+        <a routerLink="{{currentUrl}}" class="lightbox" #lightboxItem>
           <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
         </a>
 
