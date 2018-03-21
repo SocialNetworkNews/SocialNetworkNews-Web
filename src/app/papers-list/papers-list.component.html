@@ -8,7 +8,9 @@
 
       <!-- lightbox container hidden with CSS -->
       <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
-        <img *ngIf="item.paper_image" [src]="item.paper_image">
+        <div class="img-wrapper">
+          <img *ngIf="item.paper_image" [src]="item.paper_image">#
+        </div>
       </a>
 
       <div class="text">

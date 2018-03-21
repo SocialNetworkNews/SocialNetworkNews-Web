@@ -53,11 +53,24 @@
   background: rgba(0,0,0,0.8);
 }
 
-.lightbox img {
+.lightbox > .img-wrapper {
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.lightbox > .img-wrapper img {
   /** Pad the lightbox image */
   max-width: 90%;
   max-height: 80%;
-  margin-top: 2%;
+  //margin-top: 2%;
+  position: relative;
 }
 
 .lightbox:target {

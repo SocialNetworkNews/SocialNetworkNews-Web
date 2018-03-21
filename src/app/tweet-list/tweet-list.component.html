@@ -14,7 +14,9 @@
 
         <!-- lightbox container hidden with CSS -->
         <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
-          <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+          <div class="img-wrapper">
+            <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+          </div>
         </a>
 
         <div class="text">
