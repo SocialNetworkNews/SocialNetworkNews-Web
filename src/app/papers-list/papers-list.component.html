@@ -2,7 +2,7 @@
   <div class="card mx-auto" *ngFor="let item of rows" style="max-width: 22rem">
     <!--Card image-->
     <div class="overlay hm-white-slight waves-light card-img-top" *ngIf="item.paper_image">
-      <img [src]="item.paper_image" class="img-fluid" style="z-index: 0">
+      <img src="{{item.paper_image}}" class="img-fluid" style="z-index: 0">
       <a>
         <div class="mask"></div>
       </a>
