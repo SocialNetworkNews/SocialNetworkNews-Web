@@ -9,46 +9,31 @@
 </div>-->
 
 <!--Main Layout-->
-<main class="text-center py-5">
+<main>
 
-  <section class="mb-5 mr-5 ml-5">
+  <!--<section class="mb-5 mr-5 ml-5">
     <nav class="menu">
       <a routerLinkActive="active">Titelthemen</a>
       <a>Fotos</a>
       <a>Videos</a>
     </nav>
-  </section>
+  </section>-->
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xl-9">
-        <app-tweet-list [uuid]="uuid"></app-tweet-list>
-      </div>
-      <!--Card-->
-      <div class="col-xl-3">
-        <div class="card testimonial-card" style="max-width: 22rem">
+  <div class="grid">
+    <app-tweet-list [uuid]="uuid"></app-tweet-list>
 
-          <!--Background color-->
-          <div class="card-up tblue">
-          </div>
+  <article>
+    <div style="z-index: 2;">
+      <a>
+        <ngx-avatar twitterId="mtrnord" [round]="true" size="120"></ngx-avatar>
+      </a>
 
-          <!--Avatar-->
-          <div class="avatar">
-            <ngx-avatar twitterId="mtrnord" [round]="false" size="120"></ngx-avatar>
-          </div>
-
-          <div class="card-body">
-            <!--Name-->
-            <h4 class="card-title">MTRNord</h4>
-            <hr>
-            <!--Quotation-->
-            <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
-          </div>
-
-        </div>
-        <!--/.Card-->
+      <div class="text">
+        <h3>MTRNord</h3>
+        <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
       </div>
     </div>
+  </article>
   </div>
 
 </main>
