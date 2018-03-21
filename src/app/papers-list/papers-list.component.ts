@@ -43,7 +43,7 @@ export class PapersListComponent {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.data = this.chunk(data, 3); console.log(JSON.stringify(data)); },
+        data => { this.data = this.chunk(data, 3); console.log(JSON.stringify(data)); console.log(JSON.stringify(this.data)); },
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
             positionClass: 'toast-top-center',
