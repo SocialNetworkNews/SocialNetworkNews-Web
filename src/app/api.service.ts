@@ -49,8 +49,8 @@ export class ApiService {
     return this.http.get<Tweet>(`${this.url}/paper/${uuid}/yesterday`);
   }
 
-  getPapers(): Observable<Paper[]> {
-    return this.http.get<Paper[]>(`${this.url}/papers`);
+  getPapers(): Observable<(Paper)[]> {
+    return this.http.get<(Paper)[]>(`${this.url}/papers`);
   }
 
   getPaper(uuid: string): Observable<Paper> {

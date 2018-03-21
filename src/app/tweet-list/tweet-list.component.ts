@@ -12,7 +12,6 @@ import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 import {NavigationEnd, Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-tweet-list',
   templateUrl: './tweet-list.component.html',
