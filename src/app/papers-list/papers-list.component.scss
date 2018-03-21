@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: auto;
   grid-gap: 20px;
-  align-items: end;
+  //align-items: end;
   @media (min-width: 30em) {
     grid-template-columns: 1fr 1fr;
   }
