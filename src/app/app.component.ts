@@ -17,7 +17,9 @@ export class AppComponent {
   }
 
   checkCurrent(path = '/'): string {
-    return (this.currentUrl === path) ? null : 'active';
+    const active =  (this.currentUrl === path) ? null : 'active';
+    console.log('Route: ' + path + ' Active?: ' + active);
+    return active;
   }
 
 }

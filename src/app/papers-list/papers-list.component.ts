@@ -10,6 +10,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-papers-list',
@@ -18,16 +19,30 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class PapersListComponent implements OnInit {
   data: (Paper)[];
+  currentUrl: string;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, router: Router) {
     Raven.captureBreadcrumb({
       message: 'Listing Papers',
       category: 'papers-list'
+    });
+    router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd ) {
+        this.currentUrl = value.url;
+      }
     });
   }
 
   ngOnInit() {
     this.getPapers();
+  }
+
+  hide(el) {
+    el.style.display = '';
+  }
+
+  goTo(el): void {
+    el.style.display = 'block';
   }
 
   getPapers() {
