@@ -12,7 +12,7 @@
       </a>
 
       <div class="text">
-        <h3>{{item.name}}</h3>
+        <h3><a routerLink="/paper/{{item.uuid}}">{{item.name}}</a></h3>
         <p *ngIf="item.text">{{item.description}}</p>
       </div>
     </div>
