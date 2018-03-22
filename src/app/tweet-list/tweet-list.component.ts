@@ -10,7 +10,6 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
-import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-tweet-list',
@@ -20,9 +19,8 @@ import {NavigationEnd, Router} from '@angular/router';
 export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
-  currentUrl: string;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, router: Router) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -30,19 +28,6 @@ export class TweetListComponent implements OnInit {
         uuid: this.uuid
       }
     });
-    router.events.subscribe((value) => {
-      if (value instanceof NavigationEnd ) {
-        this.currentUrl = value.url;
-      }
-    });
-  }
-
-  hide(el) {
-    el.style.display = '';
-  }
-
-  goTo(el): void {
-    el.style.display = 'block';
   }
 
   ngOnInit() {

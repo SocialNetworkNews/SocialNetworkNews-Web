@@ -1,3 +1,6 @@
-<div #container class="grid">
-  <app-card *ngFor="let item of data" [title]="item.display_name" [link]="'/paper/'+item.uuid" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
+<div class="grid">
+  <ng-container *ngFor="let item of data">
+    <app-card *ngIf="item.image_urls; else other" [title]="item.display_name" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
+    <app-card #other [title]="item.display_name" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
+  </ng-container>
 </div>
