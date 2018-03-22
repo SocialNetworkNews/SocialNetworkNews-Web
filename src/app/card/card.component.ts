@@ -11,6 +11,10 @@ export class CardComponent {
   @Input() image;
   @Input() link;
   @Input() text;
+  @Input() retweet?;
+  @Input() retweets?;
+  @Input() favs?;
+  @Input() created_at?;
 
   currentUrl: string;
 

@@ -1,34 +1,3 @@
 <div #container class="grid">
-  <article *ngFor="let item of data">
-    <!--<a href="{{item.tweet_link}}">-->
-      <!--Retweet Badge-->
-      <div class="ribbon ribbon-top-left" *ngIf="item.retweet == true" style="max-width: 22rem">
-        <span>
-          <i class="fa fa-retweet"></i>
-        </span>
-      </div>
-      <div style="z-index: 2;">
-        <a (click)="goTo(lightboxItem)" >
-          <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="thumbnail">
-        </a>
-
-        <!-- lightbox container hidden with CSS -->
-        <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
-          <div class="img-wrapper">
-            <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
-          </div>
-        </a>
-
-        <div class="text">
-          <h3>{{item.display_name}}</h3>
-          <p *ngIf="item.text">{{item.text}}</p>
-          <ul>
-            <li><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</li>&nbsp;
-            <li><i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}</li>&nbsp;
-            <li><i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}</li>&nbsp;
-          </ul>
-        </div>
-      </div>
-    <!--</a>-->
-  </article>
+  <app-card *ngFor="let item of data" [title]="item.display_name" [link]="'/paper/'+item.uuid" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
 </div>
