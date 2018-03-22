@@ -1,4 +1,4 @@
-.grid > article {
+article {
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
   text-align: center;
@@ -9,7 +9,7 @@
   display: block;
 }
 
-.grid > article > div > not(.card-ribbon){
+article > div > not(.card-ribbon){
   position: relative;
   display: inline-block;
 /* if you need ie6/7 support */
