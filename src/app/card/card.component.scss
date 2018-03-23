@@ -1,6 +1,6 @@
 article {
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 6px 0  rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
 }
@@ -98,7 +98,7 @@ article > div > not(.card-ribbon){
   position: absolute;
   display: block;
   width: 225px;
-  padding: 15px 0;
+  padding: 8px 0;
   background-color: #1da1f2;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
@@ -120,10 +120,10 @@ article > div > not(.card-ribbon){
 }
 .ribbon-top-left::before {
   top: 0;
-  right: 0;
+  right: 17px;
 }
 .ribbon-top-left::after {
-  bottom: 0;
+  bottom: 17px;
   left: 0;
 }
 .ribbon-top-left span {
