@@ -1,3 +1,4 @@
+<spinner  spinner="spinner"></spinner>
 <div class="grid">
   <ng-container *ngFor="let item of data">
     <app-card *ngIf="item.image_urls" [title]="item.display_name" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
