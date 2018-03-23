@@ -45,6 +45,7 @@ export class RavenErrorHandler implements ErrorHandler {
     PapersComponent,
     TweetListComponent,
     PapersListComponent,
+    SpinnerComponent,
     CardComponent,
   ],
   imports: [
