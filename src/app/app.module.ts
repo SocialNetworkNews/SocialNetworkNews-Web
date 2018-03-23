@@ -50,7 +50,6 @@ export class RavenErrorHandler implements ErrorHandler {
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),
-    // MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     AvatarModule,
