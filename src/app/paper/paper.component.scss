@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: auto;
   grid-gap: 10px;
+  margin-left: 1%;
   //align-items: end;
   @media (min-width: 30em) {
     grid-template-columns: 74% 24%;
@@ -11,7 +12,7 @@
 
 .grid > .author {
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 6px 0  rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
   max-height: fit-content;
