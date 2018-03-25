@@ -10,6 +10,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
+import {Lightbox} from '../utils/lightbox';
 
 @Component({
   selector: 'app-tweet-list',
@@ -20,8 +21,10 @@ export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
   paperData: Paper;
+  lightbox: Lightbox;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
+    this.lightbox = lightbox;
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -29,14 +32,6 @@ export class TweetListComponent implements OnInit {
         uuid: this.uuid
       }
     });
-  }
-
-  hide(el) {
-    el.style.display = '';
-  }
-
-  show(el): void {
-    el.style.display = 'block';
   }
 
   ngOnInit() {

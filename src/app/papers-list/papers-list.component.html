@@ -5,12 +5,12 @@
       <mat-card-title>{{item.name}}</mat-card-title>
       <mat-card-subtitle>AUTHOR (Placeholder)</mat-card-subtitle>
     </mat-card-header>
-    <a (click)="show(lightboxItem)" >
+    <a (click)="lightbox.show(lightboxItem)" >
       <img mat-card-image *ngIf="item.paper_image" [src]="item.paper_image">
     </a>
 
     <!-- lightbox container hidden with CSS -->
-    <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
+    <a (click)="lightbox.hide(lightboxItem)" class="lightbox" #lightboxItem>
       <div class="img-wrapper">
         <img *ngIf="item.paper_image" [src]="item.paper_image">
       </div>

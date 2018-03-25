@@ -10,7 +10,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
-import {Router} from '@angular/router';
+import {Lightbox} from '../utils/lightbox';
 
 @Component({
   selector: 'app-papers-list',
@@ -19,20 +19,14 @@ import {Router} from '@angular/router';
 })
 export class PapersListComponent implements OnInit {
   data: (Paper)[];
+  lightbox: Lightbox;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
+    this.lightbox = lightbox;
     Raven.captureBreadcrumb({
       message: 'Listing Papers',
       category: 'papers-list'
     });
-  }
-
-  hide(el) {
-    el.style.display = '';
-  }
-
-  show(el): void {
-    el.style.display = 'block';
   }
 
   ngOnInit() {
