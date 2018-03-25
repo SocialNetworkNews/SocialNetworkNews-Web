@@ -1,6 +1,6 @@
 <spinner spinner="spinner"></spinner>
 <div class="grid">
-  <mat-card *ngFor="let item of data" routerLink="'/paper/'{{item.uuid}}">
+  <mat-card *ngFor="let item of data">
     <mat-card-header>
       <mat-card-title>{{item.name}}</mat-card-title>
     </mat-card-header>
@@ -17,6 +17,9 @@
     <mat-card-content>
       {{item.description}}
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button routerLink="'/paper/'{{item.uuid}}">OPEN</button>
+    </mat-card-actions>
   </mat-card>
   <!--<app-card  [title]="item.name" [link]="'/paper/'+item.uuid" [image]="item.paper_image" [text]="item.description"></app-card>-->
 </div>
