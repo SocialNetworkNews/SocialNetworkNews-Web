@@ -19,7 +19,7 @@ import {Lightbox} from '../utils/lightbox';
 })
 export class TweetListComponent implements OnInit {
   @Input() uuid;
-  data: (TweetsEntity)[];
+  data: (TweetsEntity)[][];
   paperData: Paper;
 
   constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
@@ -84,7 +84,7 @@ export class TweetListComponent implements OnInit {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.data = data.tweets; },
+        data => { this.data = this.chunk(data.tweets, 3); },
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
             positionClass: 'toast-top-center',
@@ -96,4 +96,11 @@ export class TweetListComponent implements OnInit {
       );
   }
 
+  private chunk(arr: (TweetsEntity)[], size: number): (TweetsEntity)[][] {
+    const newArr = [];
+    for (let i = 0; i < arr.length; i += size) {
+      newArr.push(arr.slice(i, i + size));
+    }
+    return newArr;
+  }
 }
