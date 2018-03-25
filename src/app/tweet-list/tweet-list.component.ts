@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
-import {ApiService, TweetsEntity} from '../api.service';
+import {ApiService, Paper, TweetsEntity} from '../api.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/retryWhen';
@@ -19,6 +19,7 @@ import {ToastrService} from 'ngx-toastr';
 export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
+  paperData: Paper;
 
   constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
@@ -40,6 +41,36 @@ export class TweetListComponent implements OnInit {
 
   ngOnInit() {
     this.getYesterday();
+    this.getPaper();
+  }
+  getPaper() {
+    this.apiService.getPaper(this.uuid)
+      // TODO: Better variable naming
+      .retryWhen(oerror => {
+        return oerror
+          .mergeMap((error: any) => {
+            if (String(error.status).startsWith('50')) {
+              return Observable.of(error.status).delay(1000);
+            } else if (error.status === 404) {
+              return Observable.throw({error: 'Sorry, there was an error. The Server just doesn\'t find the requested paper :('});
+            }
+            return Observable.throw({error: 'Unknown error'});
+          })
+          .take(5)
+          // TODO: Allow to link to a Status Page
+          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
+      })
+      .subscribe(
+        data => { this.paperData = data; },
+        err => {
+          this.toastr.error(err['error'], 'Error connecting API', {
+            positionClass: 'toast-top-center',
+            disableTimeOut: true
+          });
+          throw err;
+        },
+        () => console.log('done loading Paper Data')
+      );
   }
 
   getYesterday() {

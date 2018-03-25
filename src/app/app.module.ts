@@ -15,6 +15,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { ApiService } from './api.service';
 
@@ -61,6 +62,7 @@ export class RavenErrorHandler implements ErrorHandler {
     ToastrModule.forRoot(),
     MatCardModule,
     MatButtonModule,
+    MatGridListModule,
   ],
   providers: [
     ApiService,
