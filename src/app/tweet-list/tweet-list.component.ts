@@ -21,10 +21,8 @@ export class TweetListComponent implements OnInit {
   @Input() uuid;
   data: (TweetsEntity)[];
   paperData: Paper;
-  lightbox: Lightbox;
 
   constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
-    this.lightbox = lightbox;
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',

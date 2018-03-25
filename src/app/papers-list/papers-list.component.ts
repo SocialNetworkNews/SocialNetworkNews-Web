@@ -19,10 +19,8 @@ import {Lightbox} from '../utils/lightbox';
 })
 export class PapersListComponent implements OnInit {
   data: (Paper)[];
-  lightbox: Lightbox;
 
   constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
-    this.lightbox = lightbox;
     Raven.captureBreadcrumb({
       message: 'Listing Papers',
       category: 'papers-list'
