@@ -11,6 +11,8 @@ import { PaperComponent } from './paper/paper.component';
 import { PapersComponent } from './papers/papers.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {MatCardModule} from '@angular/material/card';
 
 import { ApiService } from './api.service';
 
@@ -18,7 +20,6 @@ import * as Raven from 'raven-js';
 import {ToastrModule} from 'ngx-toastr';
 import { CardComponent } from './card/card.component';
 import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
-import { SpinnerComponent } from './spinner/spinner.component';
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -55,7 +56,8 @@ export class RavenErrorHandler implements ErrorHandler {
     AvatarModule,
     HttpClientModule,
     NgHttpLoaderModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
+    MatCardModule,
   ],
   providers: [
     ApiService,

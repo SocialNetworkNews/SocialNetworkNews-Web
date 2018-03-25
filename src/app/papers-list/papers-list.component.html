@@ -1,4 +1,22 @@
 <spinner spinner="spinner"></spinner>
 <div class="grid">
-  <app-card *ngFor="let item of data" [title]="item.name" [link]="'/paper/'+item.uuid" [image]="item.paper_image" [text]="item.description"></app-card>
+  <mat-card *ngFor="let item of data" onclick="goTo(['paper', item.uuid])">
+    <mat-card-header>
+      <mat-card-title>{{item.name}}</mat-card-title>
+    </mat-card-header>
+    <a (click)="show(lightboxItem)" >
+      <img mat-card-image *ngIf="item.paper_image" [src]="item.paper_image" class="thumbnail">
+    </a>
+
+    <!-- lightbox container hidden with CSS -->
+    <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
+      <div class="img-wrapper">
+        <img *ngIf="item.paper_image" [src]="item.paper_image">
+      </div>
+    </a>
+    <mat-card-content>
+      {{item.description}}
+    </mat-card-content>
+  </mat-card>
+  <!--<app-card  [title]="item.name" [link]="'/paper/'+item.uuid" [image]="item.paper_image" [text]="item.description"></app-card>-->
 </div>
