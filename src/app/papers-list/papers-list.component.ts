@@ -55,7 +55,7 @@ export class PapersListComponent implements OnInit {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.data = data; console.log(JSON.stringify(data)); },
+        data => this.data = data,
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
             positionClass: 'toast-top-center',

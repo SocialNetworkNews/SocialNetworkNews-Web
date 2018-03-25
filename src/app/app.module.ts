@@ -12,7 +12,9 @@ import { PapersComponent } from './papers/papers.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 import { ApiService } from './api.service';
 
@@ -58,6 +60,7 @@ export class RavenErrorHandler implements ErrorHandler {
     NgHttpLoaderModule,
     ToastrModule.forRoot(),
     MatCardModule,
+    MatButtonModule,
   ],
   providers: [
     ApiService,
