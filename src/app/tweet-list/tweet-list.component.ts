@@ -30,6 +30,14 @@ export class TweetListComponent implements OnInit {
     });
   }
 
+  hide(el) {
+    el.style.display = '';
+  }
+
+  show(el): void {
+    el.style.display = 'block';
+  }
+
   ngOnInit() {
     this.getYesterday();
   }

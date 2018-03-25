@@ -12,40 +12,6 @@
   }
 }
 
-
-.grid > article {
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-  text-align: center;
-  position: relative;
-}
-.thumbnail {
-  max-width: 100%;
-  display: block;
-}
-
-.grid > article > div > not(.card-ribbon){
-  position: relative;
-  display: inline-block;
-  /* if you need ie6/7 support */
-  *display: inline;
-  zoom: 1;
-}
-
-.text {
-  padding: 0 20px 0 20px;
-}
-.text > ul {
-  padding: 10px;
-  text-align: center;
-  margin-bottom: 0;
-  font-size: .9rem;
-  width: 100%;
-  li {
-    display: inline;
-  }
-}
-
 /* Made by https://codepen.io/gschier/pen/HCoqh */
 
 .lightbox {

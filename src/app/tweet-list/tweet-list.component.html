@@ -1,7 +1,37 @@
 <spinner  spinner="spinner"></spinner>
 <div class="grid">
-  <ng-container *ngFor="let item of data">
+  <mat-card *ngFor="let item of data">
+    <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
+        <span>
+          <i class="fa fa-retweet"></i>
+        </span>
+    </div>
+    <mat-card-header>
+      <mat-card-title>{{item.display_name}}</mat-card-title>
+      <mat-card-subtitle><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</mat-card-subtitle>
+    </mat-card-header>
+    <a (click)="show(lightboxItem)" >
+      <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+    </a>
+
+    <!-- lightbox container hidden with CSS -->
+    <a (click)="hide(lightboxItem)" class="lightbox" #lightboxItem>
+      <div class="img-wrapper">
+        <img *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+      </div>
+    </a>
+    <mat-card-content>
+      {{item.text}}
+    </mat-card-content>
+    <mat-card-footer>
+      <i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}&nbsp;<i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}
+    </mat-card-footer>
+    <mat-card-actions>
+      <a mat-button href="{{item.tweet_link}}">OPEN ON TWITTER</a>
+    </mat-card-actions>
+  </mat-card>
+  <!--<ng-container *ngFor="let item of data">
     <app-card *ngIf="item.image_urls" [title]="item.display_name" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
     <app-card *ngIf="!item.image_urls"  [title]="item.display_name" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
-  </ng-container>
+  </ng-container>-->
 </div>
