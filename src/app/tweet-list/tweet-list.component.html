@@ -3,8 +3,8 @@
   <mat-grid-tile-header>
     {{paperData.name}}
   </mat-grid-tile-header>
-  <mat-grid-tile>
-    <mat-card *ngFor="let item of data">
+  <mat-grid-tile *ngFor="let item of data">
+    <mat-card>
       <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
         <span>
           <i class="fa fa-retweet"></i>
