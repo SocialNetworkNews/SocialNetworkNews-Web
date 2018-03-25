@@ -1,15 +1,6 @@
-.grid {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 20px;
-  //align-items: end;
-  @media (min-width: 30em) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 60em) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.gridHack {
+  align-items: flex-start !important;
+  margin-bottom: 10px;
 }
 
 /* Made by https://codepen.io/gschier/pen/HCoqh */
