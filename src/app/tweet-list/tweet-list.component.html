@@ -1,6 +1,6 @@
 <spinner spinner="spinner"></spinner>
-<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-  <mat-card *ngFor="let item of data">
+<div fxLayout="column wrap" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center">
+  <mat-card *ngFor="let item of data" fxFlex="calc(50% - 10px)">
     <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
       <span>
         <i class="fa fa-retweet"></i>
