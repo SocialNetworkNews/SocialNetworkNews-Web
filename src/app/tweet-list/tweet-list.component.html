@@ -22,10 +22,9 @@
     </a>
     <mat-card-content>
       {{item.text}}
-    </mat-card-content>
-    <mat-card-footer>
+      <br>
       <i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}&nbsp;<i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}
-    </mat-card-footer>
+    </mat-card-content>
     <mat-card-actions>
       <a mat-button href="{{item.tweet_link}}">OPEN ON TWITTER</a>
     </mat-card-actions>
