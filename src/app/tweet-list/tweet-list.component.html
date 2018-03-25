@@ -1,15 +1,15 @@
 <spinner  spinner="spinner"></spinner>
-<mat-grid-list cols="3">
+<mat-grid-list cols="3" rowHeight="1:2">
   <mat-grid-tile-header>
     {{paperData.name}}
   </mat-grid-tile-header>
   <mat-grid-tile *ngFor="let item of data">
+    <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
+      <span>
+        <i class="fa fa-retweet"></i>
+      </span>
+    </div>
     <mat-card>
-      <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
-        <span>
-          <i class="fa fa-retweet"></i>
-        </span>
-      </div>
       <mat-card-header>
         <img src="https://twitter.com/{{item.username}}/profile_image" mat-card-avatar>
         <mat-card-title>{{item.display_name}}</mat-card-title>
