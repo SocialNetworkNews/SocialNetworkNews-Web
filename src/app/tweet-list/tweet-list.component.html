@@ -1,5 +1,5 @@
 <spinner spinner="spinner"></spinner>
-<div fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0" fxLayoutAlign="center" *ngFor="let row of data" style="margin-bottom: 10px; align-items: flex-start !important;">
+<div fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0" fxLayoutAlign="start" *ngFor="let row of data" style="margin-bottom: 10px;">
   <mat-card *ngFor="let item of row">
     <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
       <span>
