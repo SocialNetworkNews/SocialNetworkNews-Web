@@ -20,15 +20,11 @@ import {Router} from '@angular/router';
 export class PapersListComponent implements OnInit {
   data: (Paper)[];
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private router: Router) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Listing Papers',
       category: 'papers-list'
     });
-  }
-
-  goTo(route: string[]) {
-    this.router.navigate(route).catch(err => { throw err; });
   }
 
   hide(el) {

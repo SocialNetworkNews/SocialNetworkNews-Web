@@ -1,6 +1,6 @@
 <spinner spinner="spinner"></spinner>
 <div class="grid">
-  <mat-card *ngFor="let item of data" onclick="goTo(['paper', item.uuid])">
+  <mat-card *ngFor="let item of data" routerLink="'/paper/'{{item.uuid}}">
     <mat-card-header>
       <mat-card-title>{{item.name}}</mat-card-title>
     </mat-card-header>
