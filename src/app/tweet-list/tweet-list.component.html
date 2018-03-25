@@ -1,15 +1,12 @@
-<spinner  spinner="spinner"></spinner>
-<mat-grid-list cols="3" rowHeight="1:2">
-  <mat-grid-tile-header>
-    {{paperData.name}}
-  </mat-grid-tile-header>
-  <mat-grid-tile *ngFor="let item of data">
-    <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
-      <span>
-        <i class="fa fa-retweet"></i>
-      </span>
-    </div>
-    <mat-card>
+<spinner spinner="spinner"></spinner>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-grid-tile>
+    <mat-card *ngFor="let item of data">
+      <div class="ribbon ribbon-top-left" *ngIf="item.retweet" style="max-width: 22rem">
+        <span>
+          <i class="fa fa-retweet"></i>
+        </span>
+      </div>
       <mat-card-header>
         <img src="https://twitter.com/{{item.username}}/profile_image" mat-card-avatar>
         <mat-card-title>{{item.display_name}}</mat-card-title>
@@ -39,4 +36,4 @@
     <app-card *ngIf="item.image_urls" [title]="item.display_name" [image]="item.image_urls[0]" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
     <app-card *ngIf="!item.image_urls"  [title]="item.display_name" [text]="item.text" [retweet]="item.retweet" [retweets]="item.retweets" [created_at]="item.created_at" [favs]="item.favorites"></app-card>
   </ng-container>-->
-</mat-grid-list>
+</div>
