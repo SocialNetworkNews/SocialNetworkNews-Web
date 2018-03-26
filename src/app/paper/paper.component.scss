@@ -1,14 +1,18 @@
-.grid {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
-  margin-left: 1%;
-  //align-items: end;
-  @media (min-width: 30em) {
-    grid-template-columns: 74% 24%;
-  }
+.gridHack {
+  align-items: flex-start !important;
+  margin-bottom: 10px;
 }
 
+.avatarCenter {
+  display: flex;
+  justify-content: center; /* align horizontal */
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
 
 .grid > .author {
   border: 1px solid #ccc;
