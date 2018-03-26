@@ -97,6 +97,18 @@ export class TweetListComponent implements OnInit {
   }
 
   private chunk(arr: (TweetsEntity)[], size: number): (TweetsEntity)[][] {
+    // Todo sort with a point system
+    const compare = (a, b): number  => {
+      if ((a.image_urls && a.image_urls[0]) && !(b.image_urls && b.image_urls[0])) {
+        return -1;
+      }
+      if (!(a.image_urls && a.image_urls[0]) && (b.image_urls && b.image_urls[0])) {
+        return 1;
+      }
+      return 0;
+    };
+
+    arr.sort(compare);
     const newArr = [];
     for (let i = 0; i < arr.length; i += size) {
       newArr.push(arr.slice(i, i + size));
