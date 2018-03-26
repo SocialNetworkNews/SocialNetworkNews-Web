@@ -84,7 +84,7 @@ export class TweetListComponent implements OnInit {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.data = this.sort(data.tweet); },
+        data => { this.data = this.sort(data.tweets); },
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
             positionClass: 'toast-top-center',
@@ -108,7 +108,7 @@ export class TweetListComponent implements OnInit {
     };
 
     arr.sort(compare);
-    return arr
+    return arr;
   }
 
   private chunk(arr: (TweetsEntity)[], size: number): (TweetsEntity)[][] {
