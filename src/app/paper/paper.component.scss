@@ -1,7 +1,14 @@
-.gridHack {
-  align-items: flex-start !important;
-  margin-bottom: 10px;
+.grid {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+
+.grid>* {
+  flex: 1 1 74%;
+  margin: 10px;
+}
+
 
 .avatarCenter {
   display: flex;

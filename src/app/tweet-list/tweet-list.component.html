@@ -1,5 +1,5 @@
 <spinner spinner="spinner"></spinner>
-<div fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0" fxLayoutAlign="start" *ngFor="let row of data" class="gridHack">
+<div *ngFor="let row of data" class="grid">
   <mat-card *ngFor="let item of row" style="max-width: 350px;">
     <div class="ribbon ribbon-top-right" *ngIf="item.retweet" style="max-width: 22rem">
       <span>
