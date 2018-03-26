@@ -1,12 +1,11 @@
-.grid {
+.gridTweetList {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-.grid>* {
+.gridTweetList>* {
   flex: 1 1 74%;
-  margin: 10px;
 }
 
 /* Made by https://codepen.io/gschier/pen/HCoqh */

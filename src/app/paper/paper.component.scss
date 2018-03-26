@@ -1,11 +1,7 @@
-.grid {
+.gridPaper {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-}
-
-.grid>* {
-  margin: 10px;
 }
 
 .avatarCenter {
