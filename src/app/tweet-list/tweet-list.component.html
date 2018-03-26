@@ -1,6 +1,6 @@
 <spinner spinner="spinner"></spinner>
-<div *ngFor="let row of data" class="grid">
-  <mat-card *ngFor="let item of row" style="max-width: 350px;">
+<div class="grid">
+  <mat-card *ngFor="let item of data" style="max-width: 350px;">
     <div class="ribbon ribbon-top-right" *ngIf="item.retweet" style="max-width: 22rem">
       <span>
         <i class="fa fa-retweet"></i>
