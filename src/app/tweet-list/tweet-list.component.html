@@ -1,6 +1,6 @@
 <spinner spinner="spinner"></spinner>
 <div fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0" fxLayoutAlign="start" *ngFor="let row of data" class="gridHack">
-  <mat-card *ngFor="let item of row">
+  <mat-card *ngFor="let item of row" style="max-width: 350px;">
     <div class="ribbon ribbon-top-right" *ngIf="item.retweet" style="max-width: 22rem">
       <span>
         <i class="fa fa-retweet"></i>
@@ -12,7 +12,7 @@
       <mat-card-subtitle><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</mat-card-subtitle>
     </mat-card-header>
     <a (click)="lightbox.show(lightboxItem)" >
-      <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="imageHack">
+      <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
     </a>
 
     <!-- lightbox container hidden with CSS -->
