@@ -12,7 +12,7 @@
       <mat-card-subtitle><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</mat-card-subtitle>
     </mat-card-header>
     <a (click)="lightbox.show(lightboxItem)" >
-      <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
+      <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]" class="imageHack">
     </a>
 
     <!-- lightbox container hidden with CSS -->
