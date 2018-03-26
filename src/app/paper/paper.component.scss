@@ -8,6 +8,11 @@
   justify-content: center; /* align horizontal */
 }
 
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .avatar {
   width: 120px;
   height: 120px;
