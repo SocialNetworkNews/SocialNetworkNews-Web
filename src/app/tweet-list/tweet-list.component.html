@@ -27,7 +27,7 @@
       <i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}&nbsp;<i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}
     </mat-card-content>
     <mat-card-actions>
-      <a mat-button href="{{item.tweet_link}}">OPEN ON TWITTER</a>
+      <a mat-button href="{{item.tweet_link}}" rel="noopener noreferrer" target="_blank">OPEN ON TWITTER</a>
     </mat-card-actions>
   </mat-card>
   <!--<ng-container *ngFor="let item of data">
