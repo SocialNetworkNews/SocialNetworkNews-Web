@@ -1,14 +1,13 @@
 .grid {
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .grid>* {
-  flex: 1 1 74%;
+  flex: 1 1 24%;
   margin: 10px;
 }
-
 
 .avatarCenter {
   display: flex;
