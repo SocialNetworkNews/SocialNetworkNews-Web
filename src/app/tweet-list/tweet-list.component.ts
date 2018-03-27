@@ -70,7 +70,8 @@ export class TweetListComponent implements OnInit {
             { name: 'og:description', content: this.paperData.description },
             { name: 'og:image', content: this.paperData.paper_image },
             { name: 'description', content: this.paperData.description },
-            { name: 'author', content: this.paperData.author.username },
+            // TODO Disabled until Author API Implemented
+            // { name: 'author', content: this.paperData.author.username },
           ]);
           this.titleService.setTitle( this.paperData.name );
         },
