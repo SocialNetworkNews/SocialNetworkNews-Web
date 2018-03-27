@@ -10,7 +10,14 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
+import {Meta, Title} from '@angular/platform-browser';
 import {Lightbox} from '../utils/lightbox';
+import * as linkify from 'linkifyjs';
+import hashtagL from 'linkifyjs/plugins/hashtag';
+import mentionL from 'linkifyjs/plugins/mention';
+hashtagL(linkify);
+mentionL(linkify);
+
 
 @Component({
   selector: 'app-tweet-list',
@@ -22,7 +29,7 @@ export class TweetListComponent implements OnInit {
   data: (TweetsEntity)[];
   paperData: Paper;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox, private metaService: Meta, private titleService: Title) {
     Raven.captureBreadcrumb({
       message: 'Showing Paper',
       category: 'paper',
@@ -33,8 +40,19 @@ export class TweetListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Get API
     this.getYesterday();
     this.getPaper();
+
+    // Set Meta Tags
+    this.metaService.addTags([
+      { name: 'og:title', content: this.paperData.name },
+      { name: 'og:description', content: this.paperData.description },
+      { name: 'og:image', content: this.paperData.paper_image },
+      { name: 'description', content: this.paperData.description },
+      { name: 'author', content: this.paperData.author.username },
+    ]);
+    this.titleService.setTitle( this.paperData.name );
   }
   getPaper() {
     this.apiService.getPaper(this.uuid)
@@ -96,6 +114,16 @@ export class TweetListComponent implements OnInit {
       );
   }
 
+  // TODO use this
+  private linkifyHash(text: string) {
+    hashtagL.find(text);
+  }
+
+  // TODO use this
+  private linkifyMention(text: string) {
+    hashtagL.find(text);
+  }
+
   private sort(arr: (TweetsEntity)[]): (TweetsEntity)[] {
     const compare = (a, b): number  => {
       if ((a.image_urls && a.image_urls[0]) && !(b.image_urls && b.image_urls[0])) {
@@ -109,25 +137,5 @@ export class TweetListComponent implements OnInit {
 
     arr.sort(compare);
     return arr;
-  }
-
-  private chunk(arr: (TweetsEntity)[], size: number): (TweetsEntity)[][] {
-    // Todo sort with a point system
-    const compare = (a, b): number  => {
-      if ((a.image_urls && a.image_urls[0]) && !(b.image_urls && b.image_urls[0])) {
-        return -1;
-      }
-      if (!(a.image_urls && a.image_urls[0]) && (b.image_urls && b.image_urls[0])) {
-        return 1;
-      }
-      return 0;
-    };
-
-    arr.sort(compare);
-    const newArr = [];
-    for (let i = 0; i < arr.length; i += size) {
-      newArr.push(arr.slice(i, i + size));
-    }
-    return newArr;
   }
 }

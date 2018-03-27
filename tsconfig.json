@@ -9,12 +9,13 @@
     "experimentalDecorators": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "src/app/utils/types"
     ],
     "lib": [
       "es2017",
       "dom"
     ]
   },
-  "include": ["node_modules/angular-bootstrap-md/**/*.ts",  "src/**/*.ts"]
+  "include": ["src/**/*.ts"]
 }
