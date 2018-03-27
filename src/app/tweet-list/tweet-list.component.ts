@@ -43,16 +43,6 @@ export class TweetListComponent implements OnInit {
     // Get API
     this.getYesterday();
     this.getPaper();
-
-    // Set Meta Tags
-    this.metaService.addTags([
-      { name: 'og:title', content: this.paperData.name },
-      { name: 'og:description', content: this.paperData.description },
-      { name: 'og:image', content: this.paperData.paper_image },
-      { name: 'description', content: this.paperData.description },
-      { name: 'author', content: this.paperData.author.username },
-    ]);
-    this.titleService.setTitle( this.paperData.name );
   }
   getPaper() {
     this.apiService.getPaper(this.uuid)
@@ -72,7 +62,18 @@ export class TweetListComponent implements OnInit {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.paperData = data; },
+        data => {
+          this.paperData = data;
+          // Set Meta Tags
+          this.metaService.addTags([
+            { name: 'og:title', content: this.paperData.name },
+            { name: 'og:description', content: this.paperData.description },
+            { name: 'og:image', content: this.paperData.paper_image },
+            { name: 'description', content: this.paperData.description },
+            { name: 'author', content: this.paperData.author.username },
+          ]);
+          this.titleService.setTitle( this.paperData.name );
+        },
         err => {
           this.toastr.error(err['error'], 'Error connecting API', {
             positionClass: 'toast-top-center',

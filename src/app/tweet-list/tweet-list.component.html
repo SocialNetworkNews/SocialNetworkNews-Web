@@ -23,7 +23,7 @@
       </div>
     </a>
     <mat-card-content>
-      <p [innerHtml]="item.text | linkify"></p>
+      <div [innerHTML]="item.text | linkify"></div>
       <br>
       <i class="fa fa-heart">&nbsp;</i>{{item.favorites.toLocaleString()}}&nbsp;<i class="fa fa-retweet">&nbsp;</i>{{item.retweets.toLocaleString()}}
     </mat-card-content>
