@@ -11,6 +11,10 @@ export interface TweetsEntity {
   user_id: string;
   display_name: string;
   userprofile_link: string;
+  retweetby_username?: string;
+  retweetby_user_id?: string;
+  retweetby_display_name?: string;
+  retweetby_userprofile_link?: string;
   tweet_link?: string;
   text: string;
   image_urls?: (string)[];

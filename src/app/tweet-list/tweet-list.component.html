@@ -8,8 +8,9 @@
     </div>
     <mat-card-header>
       <img src="https://twitter.com/{{item.username}}/profile_image" mat-card-avatar>
-      <mat-card-title>{{item.display_name}}</mat-card-title>
-      <mat-card-subtitle><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</mat-card-subtitle>
+      <mat-card-title><a href="{{item.userprofile_link}}">{{item.display_name}}</a></mat-card-title>
+      <mat-card-subtitle *ngIf="!item.retweetby_display_name"><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="item.retweetby_display_name"><i class="fa fa-clock-o">&nbsp;</i>{{item.created_at.toLocaleString()}}&nbsp;--&nbsp;Retweeted&nbsp;by: <a href="{{item.retweetby_userprofile_link}}">{{item.retweetby_display_name}}</a></mat-card-subtitle>
     </mat-card-header>
     <a (click)="lightbox.show(lightboxItem)" >
       <img mat-card-image *ngIf="item.image_urls && item.image_urls[0]" [src]="item.image_urls[0]">
