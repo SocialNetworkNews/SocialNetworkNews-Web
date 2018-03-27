@@ -12,11 +12,11 @@ import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 import {Meta, Title} from '@angular/platform-browser';
 import {Lightbox} from '../utils/lightbox';
-import * as linkify from 'linkifyjs';
+import * as linkifyM from 'linkifyjs';
 import hashtagL from 'linkifyjs/plugins/hashtag';
 import mentionL from 'linkifyjs/plugins/mention';
-hashtagL(linkify);
-mentionL(linkify);
+hashtagL(linkifyM);
+mentionL(linkifyM);
 
 
 @Component({
@@ -121,7 +121,7 @@ export class TweetListComponent implements OnInit {
 
   // TODO use this
   private linkifyMention(text: string) {
-    hashtagL.find(text);
+    mentionL.find(text);
   }
 
   private sort(arr: (TweetsEntity)[]): (TweetsEntity)[] {
