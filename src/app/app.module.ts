@@ -25,6 +25,7 @@ import { CardComponent } from './card/card.component';
 import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
 import {Lightbox} from './utils/lightbox';
 import {LinkifyPipe} from './utils/linkifier';
+import { LoginComponent } from './login/login.component';
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -54,6 +55,7 @@ export class RavenErrorHandler implements ErrorHandler {
     SpinnerComponent,
     CardComponent,
     LinkifyPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),

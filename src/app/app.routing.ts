@@ -3,6 +3,7 @@ import {MainComponent} from './main/main.component';
 import {NgModule} from '@angular/core';
 import {PaperComponent} from './paper/paper.component';
 import {PapersComponent} from './papers/papers.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'papers',
     component: PapersComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
