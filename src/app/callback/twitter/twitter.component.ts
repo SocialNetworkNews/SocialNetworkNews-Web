@@ -10,6 +10,7 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/filter';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
 
