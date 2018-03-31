@@ -1,7 +1,11 @@
-body {
+main {
   background: #4688F1;
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
 
 .login-box {

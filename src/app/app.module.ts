@@ -12,10 +12,11 @@ import { PapersComponent } from './papers/papers.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { LoginComponent } from './login/login.component';
+import { TwitterComponent as CallbackTwitterComponent } from './callback/twitter/twitter.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { ApiService } from './api.service';
 
@@ -25,7 +26,7 @@ import { CardComponent } from './card/card.component';
 import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
 import {Lightbox} from './utils/lightbox';
 import {LinkifyPipe} from './utils/linkifier';
-import { LoginComponent } from './login/login.component';
+
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -56,6 +57,7 @@ export class RavenErrorHandler implements ErrorHandler {
     CardComponent,
     LinkifyPipe,
     LoginComponent,
+    CallbackTwitterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),
@@ -67,7 +69,6 @@ export class RavenErrorHandler implements ErrorHandler {
     ToastrModule.forRoot(),
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule,
   ],
   providers: [
     ApiService,

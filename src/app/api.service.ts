@@ -43,7 +43,7 @@ export interface Author {
 
 @Injectable()
 export class ApiService {
-  private url;
+  url: string;
   constructor(@Inject(DOCUMENT) private document, private http: HttpClient) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
   }

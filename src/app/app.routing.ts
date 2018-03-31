@@ -1,9 +1,10 @@
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
-import {NgModule} from '@angular/core';
 import {PaperComponent} from './paper/paper.component';
 import {PapersComponent} from './papers/papers.component';
 import {LoginComponent} from './login/login.component';
+import { TwitterComponent as CallbackTwitterComponent } from './callback/twitter/twitter.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'login/twitter/callback',
+    component: CallbackTwitterComponent,
   },
 ];
 
