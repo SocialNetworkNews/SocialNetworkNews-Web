@@ -55,8 +55,7 @@ body {
 #google-connect:hover {
   background-color: rgb(220, 74, 61);
   border-color: rgb(220, 74, 61);
-  transition: background-color .3s ease-out;
-  transition: border-color .3s ease-out;
+  transition: all .3s ease-out;
 }
 
 #google-connect span {
@@ -71,7 +70,12 @@ body {
 }
 
 #google-connect:hover span {
-  color: #FFF !important;
+  color: #FFF;
+  transition: color .3s ease-out;
+}
+
+#google-connect:hover span .gpred {
+  color: #FFF;
   transition: color .3s ease-out;
 }
 
@@ -83,8 +87,7 @@ body {
 #twitter-connect:hover {
   background-color: rgb(85, 172, 238);
   border-color: rgb(85, 172, 238);
-  transition: background-color .3s ease-out;
-  transition: border-color .3s ease-out;
+  transition: all .3s ease-out;
 }
 
 #twitter-connect span {
@@ -99,7 +102,12 @@ body {
 }
 
 #twitter-connect:hover span {
-  color: #FFF !important;
+  color: #FFF;
+  transition: color .3s ease-out;
+}
+
+#twitter-connect:hover span .tblue {
+  color: #FFF;
   transition: color .3s ease-out;
 }
 
