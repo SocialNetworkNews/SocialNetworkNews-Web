@@ -21,8 +21,8 @@ import {DOCUMENT} from '@angular/common';
 })
 export class TwitterComponent implements OnInit {
   url: string;
-  accessToken: string;
-  accessSecret: string;
+  oauth_token: string;
+  oauth_verifier: string;
 
   constructor(private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
@@ -34,10 +34,10 @@ export class TwitterComponent implements OnInit {
       .subscribe(params => {
         console.log(params);
 
-        this.accessToken = params.accessToken;
-        this.accessSecret = params.accessSecret;
+        this.oauth_token = params.oauth_token;
+        this.oauth_verifier = params.oauth_verifier;
 
-        this.http.get(`${this.url}/login/twitter/callback`)
+        this.http.get(`${this.url}/login/twitter/callback?oauth_token=${this.oauth_token}&oauth_verifier=${this.oauth_verifier}`)
         // TODO: Better variable naming
         .retryWhen(oerror => {
           return oerror
