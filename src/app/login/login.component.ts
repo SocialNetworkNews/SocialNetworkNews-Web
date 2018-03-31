@@ -10,4 +10,9 @@ export class LoginComponent {
 
   constructor() { }
 
+  login() {
+    // TODO implement "/api/login/twitter"
+    console.log('TODO');
+  }
+
 }
