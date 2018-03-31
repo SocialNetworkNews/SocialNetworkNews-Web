@@ -20,11 +20,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/font-awesome/scss/font-awesome.scss",
         "./styles.scss",
         "../node_modules/ngx-toastr/toastr.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "./src/fontawesome/fontawesome-all.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -46,11 +47,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/font-awesome/scss/font-awesome.scss",
         "./styles.scss",
         "../node_modules/ngx-toastr/toastr.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "./src/fontawesome/fontawesome-all.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
