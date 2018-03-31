@@ -10,7 +10,6 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/filter';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
 
@@ -30,7 +29,6 @@ export class TwitterComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams
-      .filter(params => params.order)
       .subscribe(params => {
         console.log(params);
 
