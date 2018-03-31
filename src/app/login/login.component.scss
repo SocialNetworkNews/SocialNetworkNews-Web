@@ -14,14 +14,14 @@ body {
   position: relative;
 }
 
-/* Pre-render the bigger shadow, but hide it */
+/* Pre-render the shadow, but hide it */
 .login-box::after {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Transition to showing the bigger shadow on hover */
+/* Transition to showing the shadow on hover */
 .login-box:hover::after {
   opacity: 1;
 }
@@ -49,27 +49,27 @@ body {
   width: 100%;
   border-radius: 3px;
   margin: 10px auto;
-  outline: rgb(255, 255, 255) none 0px;
+  outline: rgb(255, 255, 255) none 0;
   padding-left: 20%;
   transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
 }
 
 #google-connect {
+  background-color: rgb(255, 255, 255);
   border: 1px solid rgb(220, 74, 61);
 }
 
-#google-connect:hover {
+/* Pre-render the border, but hide it */
+#google-connect::after {
+  background-color: rgb(220, 74, 61);
   border-color: rgb(220, 74, 61);
-  -webkit-transition: all .8s ease-out;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
+  opacity: 0;
   transition: all .3s ease-out;
+}
+
+/* Transition to showing the border on hover */
+#google-connect:hover::after {
+  opacity: 1;
 }
 
 #google-connect span {
@@ -78,35 +78,39 @@ body {
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
-  border: 0px none rgb(220, 74, 61);
-  outline: rgb(255, 255, 255) none 0px;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
+  border: 0 none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0;
   transition: all .3s ease;
 }
 
-#google-connect:hover span {
+/* Pre-render the border, but hide it */
+#google-connect::after span {
   color: #FFF;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
+  opacity: 0;
+  transition: all .3s ease-out;
+}
+
+/* Transition to showing the border on hover */
+#google-connect:hover::after span {
+  opacity: 1;
 }
 
 #twitter-connect {
+  background-color: rgb(255, 255, 255);
   border: 1px solid rgb(85, 172, 238);
 }
 
-#twitter-connect:hover {
+/* Pre-render the border, but hide it */
+#twitter-connect::after {
+  background-color: rgb(85, 172, 238);
   border-color: rgb(85, 172, 238);
-  -webkit-transition: all .8s ease-out;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
+  opacity: 0;
   transition: all .3s ease-out;
+}
+
+/* Transition to showing the border on hover */
+#twitter-connect:hover::after {
+  opacity: 1;
 }
 
 #twitter-connect span {
@@ -115,22 +119,21 @@ body {
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
-  border: 0px none rgb(220, 74, 61);
-  outline: rgb(255, 255, 255) none 0px;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
+  border: 0 none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0;
   transition: all .3s ease;
 }
 
-#twitter-connect:hover span {
+/* Pre-render the border, but hide it */
+#twitter-connect::after span {
   color: #FFF;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
+  opacity: 0;
+  transition: all .3s ease-out;
+}
+
+/* Transition to showing the border on hover */
+#twitter-connect:hover::after span {
+  opacity: 1;
 }
 
 .tblue {
