@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 
 import {Observable} from 'rxjs/Observable';
@@ -24,7 +24,7 @@ export class TwitterComponent implements OnInit {
   oauth_token: string;
   oauth_verifier: string;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient, private router: Router) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
   }
 
@@ -55,6 +55,9 @@ export class TwitterComponent implements OnInit {
           .subscribe(
             data => {
               this.apiService.authToken = data.headers.get('authorization');
+
+              // TODO redirect to the Profile instead of home page
+              this.router.navigate(['/']);
             },
             err => {
               this.toastr.error(err['error'], 'Error connecting API', {
@@ -63,7 +66,7 @@ export class TwitterComponent implements OnInit {
               });
               throw err;
             },
-            () => console.log('done loading Yesterday')
+            () => console.log('done making callback')
           );
       });
   }
