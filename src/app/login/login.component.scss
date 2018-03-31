@@ -17,7 +17,7 @@ body {
 
 .login-box:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: opacity 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .login-box h2 {
@@ -55,7 +55,8 @@ body {
 #google-connect:hover {
   background-color: rgb(220, 74, 61);
   border-color: rgb(220, 74, 61);
-  transition: all .3s ease-out;
+  transition: background-color .3s ease-out;
+  transition: border-color .3s ease-out;
 }
 
 #google-connect span {
@@ -66,12 +67,12 @@ body {
   text-transform: uppercase;
   border: 0 none rgb(220, 74, 61);
   outline: rgb(255, 255, 255) none 0;
-  transition: all .3s ease;
+  transition: box-shadow .3s ease;
 }
 
 #google-connect:hover span {
   color: #FFF !important;
-  transition: all .3s ease-out;
+  transition: color .3s ease-out;
 }
 
 #twitter-connect {
@@ -82,7 +83,8 @@ body {
 #twitter-connect:hover {
   background-color: rgb(85, 172, 238);
   border-color: rgb(85, 172, 238);
-  transition: all .3s ease-out;
+  transition: background-color .3s ease-out;
+  transition: border-color .3s ease-out;
 }
 
 #twitter-connect span {
@@ -98,7 +100,7 @@ body {
 
 #twitter-connect:hover span {
   color: #FFF !important;
-  transition: all .3s ease-out;
+  transition: color .3s ease-out;
 }
 
 .tblue {
