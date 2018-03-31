@@ -24,7 +24,7 @@
         "../node_modules/ngx-toastr/toastr.css"
       ],
       "scripts": [
-        "./src/fontawesome/fontawesome-all.min.js"
+        "./fontawesome/fontawesome-all.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -51,7 +51,7 @@
         "../node_modules/ngx-toastr/toastr.css"
       ],
       "scripts": [
-        "./src/fontawesome/fontawesome-all.min.js"
+        "./fontawesome/fontawesome-all.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
