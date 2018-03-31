@@ -12,6 +12,7 @@ import 'rxjs/add/operator/concat';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
+import {ApiService} from '../../api.service';
 
 @Component({
   selector: 'app-twitter',
@@ -23,7 +24,7 @@ export class TwitterComponent implements OnInit {
   oauth_token: string;
   oauth_verifier: string;
 
-  constructor(private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient) {
+  constructor(private apiService: ApiService, private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
   }
 
@@ -53,7 +54,7 @@ export class TwitterComponent implements OnInit {
           })
           .subscribe(
             data => {
-              // TODO get accessToken Header
+              this.apiService.authToken = data.headers.get('authorization');
             },
             err => {
               this.toastr.error(err['error'], 'Error connecting API', {
