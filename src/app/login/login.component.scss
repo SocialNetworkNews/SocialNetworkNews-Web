@@ -1,4 +1,4 @@
-app-login {
+body {
   background: #4688F1;
   padding: 0;
   margin: 0;
@@ -122,4 +122,12 @@ app-login {
   -ms-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
+}
+
+.tblue {
+  color: rgb(85, 172, 238);
+}
+
+.gpred {
+  color: rgb(220, 74, 61);
 }
