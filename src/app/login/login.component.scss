@@ -14,18 +14,10 @@ body {
   position: relative;
 }
 
-/* Pre-render the shadow, but hide it */
-.login-box::after {
+.login-box:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
-/* Transition to showing the shadow on hover */
-.login-box:hover::after {
-  opacity: 1;
-}
-
 
 .login-box h2 {
   margin: 20px 0 20px;
@@ -35,7 +27,7 @@ body {
 }
 
 .social-button {
-  background-position: 25px 0px;
+  background-position: 25px 0;
   box-sizing: border-box;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -59,17 +51,10 @@ body {
   border: 1px solid rgb(220, 74, 61);
 }
 
-/* Pre-render the border, but hide it */
-#google-connect::after {
+#google-connect:hover {
   background-color: rgb(220, 74, 61);
   border-color: rgb(220, 74, 61);
-  opacity: 0;
   transition: all .3s ease-out;
-}
-
-/* Transition to showing the border on hover */
-#google-connect:hover::after {
-  opacity: 1;
 }
 
 #google-connect span {
@@ -83,16 +68,9 @@ body {
   transition: all .3s ease;
 }
 
-/* Pre-render the border, but hide it */
-#google-connect::after span {
+#google-connect:hover span {
   color: #FFF;
-  opacity: 0;
   transition: all .3s ease-out;
-}
-
-/* Transition to showing the border on hover */
-#google-connect:hover::after span {
-  opacity: 1;
 }
 
 #twitter-connect {
@@ -100,17 +78,10 @@ body {
   border: 1px solid rgb(85, 172, 238);
 }
 
-/* Pre-render the border, but hide it */
-#twitter-connect::after {
+#twitter-connect:hover {
   background-color: rgb(85, 172, 238);
   border-color: rgb(85, 172, 238);
-  opacity: 0;
   transition: all .3s ease-out;
-}
-
-/* Transition to showing the border on hover */
-#twitter-connect:hover::after {
-  opacity: 1;
 }
 
 #twitter-connect span {
@@ -124,16 +95,9 @@ body {
   transition: all .3s ease;
 }
 
-/* Pre-render the border, but hide it */
-#twitter-connect::after span {
+#twitter-connect:hover span {
   color: #FFF;
-  opacity: 0;
   transition: all .3s ease-out;
-}
-
-/* Transition to showing the border on hover */
-#twitter-connect:hover::after span {
-  opacity: 1;
 }
 
 .tblue {
