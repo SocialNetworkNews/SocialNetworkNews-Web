@@ -36,7 +36,7 @@ export class TwitterComponent implements OnInit {
         this.oauth_token = params.oauth_token;
         this.oauth_verifier = params.oauth_verifier;
 
-        this.http.get(`${this.url}/login/twitter/callback?oauth_token=${this.oauth_token}&oauth_verifier=${this.oauth_verifier}`)
+        this.http.get(`${this.url}/login/twitter/callback?oauth_token=${this.oauth_token}&oauth_verifier=${this.oauth_verifier}`, { observe: 'response' })
         // TODO: Better variable naming
         .retryWhen(oerror => {
           return oerror
