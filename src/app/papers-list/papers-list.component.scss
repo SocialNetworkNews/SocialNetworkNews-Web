@@ -1,12 +1,16 @@
 .grid {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   flex-wrap: wrap;
+  padding: 2.500em;
+
+  // Without a set height, the effect can't be achieved.
+  height: 250%; // Percent
 }
 
 .grid>* {
-  flex: 1 1 74%;
-  margin: 10px;
+  margin: .5em;
+  position: relative;
 }
 
 /* Made by https://codepen.io/gschier/pen/HCoqh */
