@@ -1,17 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-html { overflow:auto; }
-
+@import url('https://fonts.googleapis.com/css?family=Lora');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+html { overflow:auto; }
 
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
+html, body {
+  font-family: 'Lora', serif;
 }

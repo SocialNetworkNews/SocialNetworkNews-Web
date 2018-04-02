@@ -22,7 +22,6 @@ import { ApiService } from './api.service';
 
 import * as Raven from 'raven-js';
 import {ToastrModule} from 'ngx-toastr';
-import { CardComponent } from './card/card.component';
 import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
 import {Lightbox} from './utils/lightbox';
 import {LinkifyPipe} from './utils/linkifier';
@@ -54,7 +53,6 @@ export class RavenErrorHandler implements ErrorHandler {
     TweetListComponent,
     PapersListComponent,
     SpinnerComponent,
-    CardComponent,
     LinkifyPipe,
     LoginComponent,
     CallbackTwitterComponent,
