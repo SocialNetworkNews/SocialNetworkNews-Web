@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AvatarModule } from 'ngx-avatar';
 import * as Raven from 'raven-js';
 import {ToastrModule} from 'ngx-toastr';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
 
 import { AppComponent } from './app.component';
@@ -17,6 +15,8 @@ import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { PapersListComponent } from './papers-list/papers-list.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { SettingsComponent } from './user/settings/settings.component';
 import { TwitterComponent as CallbackTwitterComponent } from './callback/twitter/twitter.component';
 
 import {MatCardModule} from '@angular/material/card';
@@ -26,8 +26,6 @@ import { ApiService } from './api.service';
 
 import {Lightbox} from './utils/lightbox';
 import {LinkifyPipe} from './utils/linkifier';
-import {TranslatePoHttpLoader} from '@biesbjerg/ngx-translate-po-http-loader';
-
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -45,11 +43,6 @@ export class RavenErrorHandler implements ErrorHandler {
     }
   }
 }
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslatePoHttpLoader(http, 'assets/i18n', '.po');
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,24 +55,18 @@ export function createTranslateLoader(http: HttpClient) {
     LinkifyPipe,
     LoginComponent,
     CallbackTwitterComponent,
+    ProfileComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),
     AppRoutingModule,
     BrowserAnimationsModule,
-    AvatarModule,
     HttpClientModule,
     NgHttpLoaderModule,
     ToastrModule.forRoot(),
     MatCardModule,
     MatButtonModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
   ],
   providers: [
     ApiService,
