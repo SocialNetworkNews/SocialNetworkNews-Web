@@ -61,4 +61,8 @@ export class ApiService {
   getPaper(uuid: string): Observable<Paper> {
     return this.http.get<Paper>(`${this.url}/paper/${uuid}`);
   }
+
+  checkIfUserIsAuthenticated(): Observable {
+    return this.http.get(`${this.url}/login/twitter/check`);
+  }
 }
