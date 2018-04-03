@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {SpinnerComponent} from './spinner/spinner.component';
-import {TranslateService} from '@ngx-translate/core';
 import {ToastrService} from 'ngx-toastr';
 import {ApiService} from './api.service';
 import {Observable} from 'rxjs/Observable';

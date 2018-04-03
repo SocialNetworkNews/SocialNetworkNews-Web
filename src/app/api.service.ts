@@ -62,7 +62,7 @@ export class ApiService {
     return this.http.get<Paper>(`${this.url}/paper/${uuid}`);
   }
 
-  checkIfUserIsAuthenticated(): Observable {
+  checkIfUserIsAuthenticated(): Observable<any> {
     return this.http.get(`${this.url}/login/twitter/check`);
   }
 }
