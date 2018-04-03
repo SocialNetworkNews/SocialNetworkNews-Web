@@ -22,15 +22,15 @@
   <div class="gridPaper">
     <app-tweet-list [uuid]="uuid"></app-tweet-list>
 
-    <mat-card>
+    <mat-card style="width: 300px;">
       <mat-card-header class="avatarCenter">
         <div class="avatarContainer">
-          <img src="{{data.author.profile_image_url}}" class="avatar">
+          <img src="https://twitter.com/{{data.author.username}}/profile_image?size=original" class="avatar">
           <mat-card-title class="username"><b>{{data.author.username}}</b></mat-card-title>
         </div>
       </mat-card-header>
       <mat-card-content>
-        <i class="fa fa-quote-left"></i>{{data.description}}
+        <p *ngIf="data.description != ''"><i class="fa fa-quote-left"></i>{{data.description}}</p>
       </mat-card-content>
     </mat-card>
   </div>
