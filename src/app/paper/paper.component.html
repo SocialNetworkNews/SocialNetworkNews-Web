@@ -25,12 +25,12 @@
     <mat-card>
       <mat-card-header class="avatarCenter">
         <div class="avatarContainer">
-          <img src="https://twitter.com/mtrnord/profile_image?size=original" class="avatar">
-          <mat-card-title class="username"><b>MTRNord</b></mat-card-title>
+          <img src="{{data.author.profile_image_url}}" class="avatar">
+          <mat-card-title class="username"><b>{{data.author.username}}</b></mat-card-title>
         </div>
       </mat-card-header>
       <mat-card-content>
-        <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
+        <i class="fa fa-quote-left"></i>{{data.description}}
       </mat-card-content>
     </mat-card>
   </div>
