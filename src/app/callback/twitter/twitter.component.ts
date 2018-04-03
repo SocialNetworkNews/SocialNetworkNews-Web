@@ -54,7 +54,7 @@ export class TwitterComponent implements OnInit {
           })
           .subscribe(
             data => {
-              this.apiService.authToken = data.headers.get('authorization');
+              this.apiService.userUUID = data.headers.get('UUID');
 
               // TODO redirect to the Profile instead of home page
               this.router.navigate(['/']);

@@ -12,7 +12,7 @@
         <a class="nav--link" routerLink="/features">Features</a>
         <a class="nav--link" routerLink="/papers">Papers</a>
         <a class="nav--link" *ngIf="!authenticated" routerLink="/login">Login</a>
-        <a class="nav--link" *ngIf="authenticated" routerLink="/profile">Profile</a>
+        <a class="nav--link" *ngIf="authenticated" routerLink="/profile/{{apiService.userUUID}}">Profile</a>
       </nav>
     </div>
 

@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public spinner = SpinnerComponent;
   authenticated: boolean;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {  }
+  constructor(public apiService: ApiService, private toastr: ToastrService) {  }
 
   ngOnInit() {
     this.apiService.checkIfUserIsAuthenticated()
