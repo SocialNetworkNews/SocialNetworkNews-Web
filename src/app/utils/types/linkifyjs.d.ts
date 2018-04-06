@@ -1,4 +1,3 @@
-import * as linkify from 'linkifyjs';
 // Type definitions for linkifyjs v2.1.3
 // Project: https://github.com/SoapBox/linkifyjs
 // Definitions by: Aleksey Nemiro <https://github.com/alekseynemiro>
@@ -61,12 +60,14 @@ declare module 'linkifyjs/html' {
 declare module 'linkifyjs/string' {}
 
 declare module 'linkifyjs/plugins/hashtag' {
-  type hashtag = (linkify: linkify) => void;
+  import ILinkifyOptions = LinkifyJs.ILinkifyOptions;
+  type hashtag = (linkify: ILinkifyOptions) => void;
   export default hashtag;
 }
 
 declare module 'linkifyjs/plugins/mention' {
-  type mention = (linkify: linkify) => void;
+  import ILinkifyOptions = LinkifyJs.ILinkifyOptions;
+  type mention = (linkify: ILinkifyOptions) => void;
   export default mention;
 }
 
