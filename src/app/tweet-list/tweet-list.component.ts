@@ -12,11 +12,7 @@ import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 import {Meta, Title} from '@angular/platform-browser';
 import {Lightbox} from '../utils/lightbox';
-/*import * as linkifyM from 'linkifyjs';
-import hashtagL from 'linkifyjs/plugins/hashtag';
-import mentionL from 'linkifyjs/plugins/mention';
-hashtagL(linkifyM);
-mentionL(linkifyM);*/
+
 
 
 @Component({
@@ -115,16 +111,6 @@ export class TweetListComponent implements OnInit {
         () => console.log('done loading Yesterday')
       );
   }
-
-  // TODO use this
-  /*private linkifyHash(text: string) {
-    hashtagL.find(text);
-  }*/
-
-  // TODO use this
-  /*private linkifyMention(text: string) {
-    mentionL.find(text);
-  }*/
 
   private sort(arr: (TweetsEntity)[]): (TweetsEntity)[] {
     const compare = (a, b): number  => {
