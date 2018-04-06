@@ -53,15 +53,21 @@ declare module 'linkifyjs' {
 
 declare module 'linkifyjs/html' {
 
-  export default function linkifyHtml(str: string, opts = {}): Array<string>;
+  export default function linkifyHtml(str: string, opts: Object): Array<string>;
 
 }
 
 declare module 'linkifyjs/string' {}
 
-declare module 'linkifyjs/plugins/hashtag' {}
+declare module 'linkifyjs/plugins/hashtag' {
+  import * as LinkifyJs from 'linkifyjs';
+  export default function hashtag(linkify: LinkifyJs): void;
+}
 
-declare module 'linkifyjs/plugins/mention' {}
+declare module 'linkifyjs/plugins/mention' {
+  import * as LinkifyJs from 'linkifyjs';
+  export default function mention(linkify: LinkifyJs): void;
+}
 
 declare var linkify: LinkifyJs.linkify;
 declare var linkifyHtml: LinkifyJs.linkify;
