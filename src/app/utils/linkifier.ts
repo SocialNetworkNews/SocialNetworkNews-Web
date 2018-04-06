@@ -1,8 +1,8 @@
 import {Inject, Pipe, PipeTransform} from '@angular/core';
 import * as linkify from 'linkifyjs';
 import * as linkifyStr from 'linkifyjs/string';
-import * as hashtag from 'linkifyjs/plugins/hashtag';
-import * as mention from 'linkifyjs/plugins/mention';
+import hashtag from 'linkifyjs/plugins/hashtag';
+import mention from 'linkifyjs/plugins/mention';
 import {DOCUMENT} from '@angular/common';
 
 @Pipe({name: 'linkify'})

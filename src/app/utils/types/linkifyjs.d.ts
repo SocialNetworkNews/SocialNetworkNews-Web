@@ -40,6 +40,13 @@ declare namespace LinkifyJs {
 
   }
 
+  export function find(str: any, ...args: any[]): any;
+
+  export function inherits(parent: any, child: any, ...args: any[]): any;
+
+  export function test(str: any, ...args: any[]): any;
+
+  export function tokenize(str: any): any;
 
   type linkify = (value: string, options?: ILinkifyOptions) => string;
 
@@ -57,17 +64,13 @@ declare module 'linkifyjs/html' {
 
 }
 
-declare module 'linkifyjs/string' {}
-
 declare module 'linkifyjs/plugins/hashtag' {
-  import ILinkifyOptions = LinkifyJs.ILinkifyOptions;
-  type hashtag = (linkify: ILinkifyOptions) => void;
+  function hashtag(linkify: any): void;
   export default hashtag;
 }
 
 declare module 'linkifyjs/plugins/mention' {
-  import ILinkifyOptions = LinkifyJs.ILinkifyOptions;
-  type mention = (linkify: ILinkifyOptions) => void;
+  function mention(linkify: any): void;
   export default mention;
 }
 
