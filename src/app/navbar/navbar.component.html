@@ -6,8 +6,8 @@
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/features">Features</a></li>
         <li><a routerLink="/papers">Papers</a></li>
-        <li><a *ngIf="!authenticated" routerLink="/login">Login</a></li>
-        <li><a *ngIf="authenticated" routerLink="/profile/{{apiService.userUUID}}">Profile</a></li>
+        <li *ngIf="!authenticated"><a routerLink="/login">Login</a></li>
+        <li *ngIf="authenticated"><a routerLink="/profile/{{apiService.userUUID}}">Profile</a></li>
       </ul>
     </div>
   </div>
