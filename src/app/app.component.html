@@ -1,22 +1,5 @@
 <div class="wrapper">
-  <header>
-    <div class="header--inner">
-      <div class="logo">
-        <a href="#" class="logo--link">
-          <h2>Social Networks News</h2>
-          <!--<img class="logo--image" src="https://via.placeholder.com/150x50/eeeeee/333333/?text=Logo" />-->
-        </a>
-      </div>
-      <nav>
-        <a class="nav--link" routerLink="/">Home</a>
-        <a class="nav--link" routerLink="/features">Features</a>
-        <a class="nav--link" routerLink="/papers">Papers</a>
-        <a class="nav--link" *ngIf="!authenticated" routerLink="/login">Login</a>
-        <a class="nav--link" *ngIf="authenticated" routerLink="/profile/{{apiService.userUUID}}">Profile</a>
-      </nav>
-    </div>
-
-  </header>
+  <app-navbar></app-navbar>
   <div class="main">
     <router-outlet></router-outlet>
   </div>

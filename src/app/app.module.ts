@@ -26,6 +26,7 @@ import { ApiService } from './api.service';
 
 import {Lightbox} from './utils/lightbox';
 import {LinkifyPipe} from './utils/linkifier';
+import { NavbarComponent } from './navbar/navbar.component';
 Raven
   .config('https://b760c9f9035c472998ada3a02dcc81d3@sentry.io/294520', {
     environment: 'development',
@@ -57,6 +58,7 @@ export class RavenErrorHandler implements ErrorHandler {
     CallbackTwitterComponent,
     ProfileComponent,
     SettingsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'snn-app'}),

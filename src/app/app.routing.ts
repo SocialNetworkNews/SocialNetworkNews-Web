@@ -6,6 +6,7 @@ import {PapersComponent} from './papers/papers.component';
 import {LoginComponent} from './login/login.component';
 import { TwitterComponent as CallbackTwitterComponent } from './callback/twitter/twitter.component';
 import {ProfileComponent} from './user/profile/profile.component';
+import {SettingsComponent} from './user/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'profile/:author',
     component: ProfileComponent,
+  },
+  {
+    path: 'profile/:author/settings',
+    component: SettingsComponent,
   },
 ];
 

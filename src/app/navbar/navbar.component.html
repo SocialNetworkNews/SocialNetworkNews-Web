@@ -1,0 +1,18 @@
+<header>
+  <div class="container">
+    <span id="home"><span class="ion-camera"></span></span>
+    <div class="box">
+      <ul>
+        <li><a href="#">portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/features">Features</a></li>
+        <li><a routerLink="/papers">Papers</a></li>
+        <li><a *ngIf="!authenticated" routerLink="/login">Login</a></li>
+        <li><a *ngIf="authenticated" routerLink="/profile/{{apiService.userUUID}}">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
