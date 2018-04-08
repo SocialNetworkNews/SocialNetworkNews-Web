@@ -1,11 +1,9 @@
-html,
-body {
-  font-family: 'Lato', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 a {
   color: inherit;
   text-decoration: none;
+  font-family: 'Lato', sans-serif;
 }
 
 a:hover {
