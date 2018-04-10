@@ -33,7 +33,12 @@ export class NavbarComponent implements OnInit {
           .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
-        data => { this.authenticated = true; },
+        data => {
+          this.authenticated = true;
+          if (!this.apiService.userUUID) {
+            this.apiService.userUUID = data.headers.get('UUID');
+          }
+        },
         err => {
           if (err['error'] === '401') {
             this.authenticated = false;

@@ -63,6 +63,6 @@ export class ApiService {
   }
 
   checkIfUserIsAuthenticated(): Observable<any> {
-    return this.http.get(`${this.url}/login/twitter/check`);
+    return this.http.get(`${this.url}/login/twitter/check`, { observe: 'response' });
   }
 }
