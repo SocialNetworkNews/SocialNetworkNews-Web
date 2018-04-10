@@ -14,6 +14,12 @@ export class NavbarComponent implements OnInit {
   constructor(public apiService: ApiService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    if (!this.apiService.inCallback) {
+      this.authCheck();
+    }
+  }
+
+  authCheck() {
     this.apiService.checkIfUserIsAuthenticated()
     // TODO: Better variable naming
       .retryWhen(oerror => {

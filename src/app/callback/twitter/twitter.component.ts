@@ -26,6 +26,7 @@ export class TwitterComponent implements OnInit {
 
   constructor(private apiService: ApiService, private toastr: ToastrService, private route: ActivatedRoute, @Inject(DOCUMENT) private document, private http: HttpClient, private router: Router) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
+    this.apiService.inCallback = true;
   }
 
   ngOnInit() {
@@ -57,6 +58,7 @@ export class TwitterComponent implements OnInit {
               this.apiService.userUUID = data.headers.get('UUID');
 
               // TODO redirect to the Profile instead of home page
+              this.apiService.inCallback = false;
               this.router.navigate(['/']);
             },
             err => {

@@ -45,6 +45,8 @@ export interface Author {
 export class ApiService {
   url: string;
   userUUID: string;
+  inCallback: boolean;
+
   constructor(@Inject(DOCUMENT) private document, private http: HttpClient) {
     this.url = document.location.protocol + '//' + document.location.hostname + '/api';
   }
