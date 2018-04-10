@@ -80,7 +80,7 @@ header .box > ul li {
 }
 
 .menuButton {
-  display: block;
+  display: block !important;
 }
 
 @media only screen and (min-width: 520px) {
@@ -94,7 +94,7 @@ header .box > ul li {
     height: 60px;
   }
   .menuButton {
-    display: none;
+    display: none !important;
   }
   ul,
   li {
