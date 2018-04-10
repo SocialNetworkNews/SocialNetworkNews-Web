@@ -3,6 +3,8 @@
     <a id="home" routerLink="/"><i class="far fa-newspaper"></i></a>
     <div class="box">
       <ul>
+        <li class="menuButton">MENU <i class="fas fa-bars"></i></li>
+        <li class="menuButton"><hr></li>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/features">Features</a></li>
         <li><a routerLink="/papers">Papers</a></li>
@@ -10,6 +12,5 @@
         <li *ngIf="authenticated"><a routerLink="/profile/{{apiService.userUUID}}">Profile</a></li>
       </ul>
     </div>
-    <a class="menuButton">MENU <i class="fas fa-bars"></i></a>
   </div>
 </header>
