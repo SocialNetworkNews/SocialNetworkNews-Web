@@ -16,4 +16,5 @@ before_script:
 
 script:
   - yarn run build:ssr
-  - ng test
+  - yarn run e2e
+  - yarn run test
