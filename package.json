@@ -6,9 +6,9 @@
     "ng": "ng",
     "build:ssr": "yarn run build:client-and-server-bundles && yarn run webpack:server",
     "serve:ssr": "node dist/server.js",
-    "build:client-and-server-bundles": "ng build --prod",
+    "build:client-and-server-bundles": "ng build --prod --source-map && ng run social-networks-news-web:server --source-map",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
-    "test": "ng test",
+    "test": "ng test --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -39,12 +39,13 @@
     "ngx-toastr": "^8.7.3",
     "raven-js": "^3.22.3",
     "rxjs": "^6.1.0",
+    "rxjs-compat": "^6.1.0",
     "ts-loader": "^4.0.0",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.24"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.6.0",
+    "@angular-devkit/build-angular": "~0.6.3",
     "@angular-devkit/core": "^0.6.0",
     "@angular/cli": "^6.0.3",
     "@angular/compiler-cli": "^6.0.2",
