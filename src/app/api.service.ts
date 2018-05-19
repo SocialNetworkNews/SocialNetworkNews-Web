@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {DOCUMENT} from '@angular/common';
 import {Observable} from 'rxjs';
 
 export interface Tweet {
@@ -46,16 +47,8 @@ export class ApiService {
   userUUID: string;
   inCallback: boolean;
 
-  /*constructor(@Inject(PLATFORM_ID) private platformId, private injector: Injector, @Inject(DOCUMENT) private document, private http: HttpClient) {
-    if (isPlatformServer(this.platformId))  {
-      const req = this.injector.get('request');
-      this.url = req.get('host') + '/api';
-    } else {
-      this.url = document.location.protocol + '//' + document.location.hostname + '/api';
-    }
-  }*/
-
-  constructor(private http: HttpClient) {
+  constructor(@Inject(DOCUMENT) private document, private http: HttpClient) {
+    this.url = document.location.protocol + '//' + document.location.hostname + '/api';
   }
 
   // Uses http.get() to load data from a single API endpoint
