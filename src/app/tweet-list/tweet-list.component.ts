@@ -6,6 +6,7 @@ import {ApiService, Paper, TweetsEntity} from '../api.service';
 import {ToastrService} from 'ngx-toastr';
 import {Meta, Title} from '@angular/platform-browser';
 import {Lightbox} from '../utils/lightbox';
+import {concat, delay, mergeMap, retryWhen, take} from 'rxjs/operators';
 
 
 
@@ -37,20 +38,27 @@ export class TweetListComponent implements OnInit {
   getPaper() {
     this.apiService.getPaper(this.uuid)
       // TODO: Better variable naming
-      .retryWhen(oerror => {
-        return oerror
-          .mergeMap((error: any) => {
-            if (String(error.status).startsWith('50')) {
-              return of(error.status).delay(1000);
-            } else if (error.status === 404) {
-              return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find the requested paper :('});
-            }
-            return observableThrowError({error: 'Unknown error'});
-          })
-          .take(5)
-          // TODO: Allow to link to a Status Page
-          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
-      })
+      .pipe(
+        retryWhen(oerror => {
+          return oerror
+            .pipe(
+              mergeMap((error: any) => {
+                if (String(error.status).startsWith('50')) {
+                  return of(error.status)
+                    .pipe(
+                      delay(1000)
+                    );
+                } else if (error.status === 404) {
+                  return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find the requested paper :('});
+                }
+                return observableThrowError({error: 'Unknown error'});
+              }),
+              take(5),
+              // TODO: Allow to link to a Status Page
+              concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}))
+            );
+        })
+      )
       .subscribe(
         data => {
           this.paperData = data;
@@ -79,20 +87,25 @@ export class TweetListComponent implements OnInit {
   getYesterday() {
     this.apiService.getYesterday(this.uuid)
       // TODO: Better variable naming
-      .retryWhen(oerror => {
-        return oerror
-          .mergeMap((error: any) => {
-            if (String(error.status).startsWith('50')) {
-              return of(error.status).delay(1000);
-            } else if (error.status === 404) {
-              return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
-            }
-            return observableThrowError({error: 'Unknown error'});
-          })
-          .take(5)
-          // TODO: Allow to link to a Status Page
-          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
-      })
+      .pipe(
+        retryWhen(oerror => {
+          return oerror
+            .pipe(
+              mergeMap((error: any) => {
+                if (String(error.status).startsWith('50')) {
+                  return of(error.status)
+                    .pipe(delay(1000));
+                } else if (error.status === 404) {
+                  return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
+                }
+                return observableThrowError({error: 'Unknown error'});
+              }),
+              take(5),
+              // TODO: Allow to link to a Status Page
+              concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}))
+            );
+        })
+      )
       .subscribe(
         data => { this.data = this.sort(data.tweets); },
         err => {

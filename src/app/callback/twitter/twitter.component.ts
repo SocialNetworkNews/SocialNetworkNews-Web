@@ -1,4 +1,5 @@
 import {throwError as observableThrowError, of} from 'rxjs';
+import {delay, mergeMap, retryWhen, take, concat} from 'rxjs/operators';
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
@@ -30,38 +31,45 @@ export class TwitterComponent implements OnInit {
         this.oauth_verifier = params.oauth_verifier;
 
         this.http.get(`${this.url}/login/twitter/callback?oauth_token=${this.oauth_token}&oauth_verifier=${this.oauth_verifier}`, { observe: 'response' })
-        // TODO: Better variable naming
-        .retryWhen(oerror => {
-          return oerror
-            .mergeMap((error: any) => {
-              if (String(error.status).startsWith('50')) {
-                return of(error.status).delay(1000);
-              } else if (error.status === 404) {
-                return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
-              }
-              return observableThrowError({error: 'Unknown error'});
+          .pipe(
+            // TODO: Better variable naming
+            retryWhen(oerror => {
+              return oerror
+                .pipe(
+                  mergeMap((error: any) => {
+                    if (String(error.status).startsWith('50')) {
+                      return of(error.status)
+                        .pipe(
+                          delay(1000)
+                        );
+                    } else if (error.status === 404) {
+                      return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
+                    }
+                    return observableThrowError({error: 'Unknown error'});
+                  }),
+                  take(5),
+                  // TODO: Allow to link to a Status Page
+                  concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}))
+                );
             })
-            .take(5)
-            // TODO: Allow to link to a Status Page
-            .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
-          })
+          )
           .subscribe(
-            data => {
-              this.apiService.userUUID = data.headers.get('UUID');
+          data => {
+            this.apiService.userUUID = data.headers.get('UUID');
 
-              // TODO redirect to the Profile instead of home page
-              this.apiService.inCallback = false;
-              this.router.navigate(['/']);
-            },
-            err => {
-              this.toastr.error(err['error'], 'Error connecting API', {
-                positionClass: 'toast-top-center',
-                disableTimeOut: true
-              });
-              throw err;
-            },
-            () => console.log('done making callback')
-          );
+            // TODO redirect to the Profile instead of home page
+            this.apiService.inCallback = false;
+            this.router.navigate(['/']);
+          },
+          err => {
+            this.toastr.error(err['error'], 'Error connecting API', {
+              positionClass: 'toast-top-center',
+              disableTimeOut: true
+            });
+            throw err;
+          },
+          () => console.log('done making callback')
+        );
       });
   }
 

@@ -4,6 +4,7 @@ import {ApiService, Paper} from '../api.service';
 import * as Raven from 'raven-js';
 import {ToastrService} from 'ngx-toastr';
 import {Lightbox} from '../utils/lightbox';
+import {concat, delay, mergeMap, retryWhen, take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-papers-list',
@@ -27,18 +28,25 @@ export class PapersListComponent implements OnInit {
   getPapers() {
     this.apiService.getPapers()
       // TODO: Better variable naming
-      .retryWhen(oerror => {
-        return oerror
-          .mergeMap((error: any) => {
-            if (String(error.status).startsWith('50')) {
-              return of(error.status).delay(1000);
-            }
-            return observableThrowError({error: 'Unknown error'});
-          })
-          .take(5)
-          // TODO: Allow to link to a Status Page
-          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
-      })
+      .pipe(
+        retryWhen(oerror => {
+          return oerror
+            .pipe(
+              mergeMap((error: any) => {
+                if (String(error.status).startsWith('50')) {
+                  return of(error.status)
+                    .pipe(
+                      delay(1000)
+                    );
+                }
+                return observableThrowError({error: 'Unknown error'});
+              }),
+              take(5),
+              // TODO: Allow to link to a Status Page
+              concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}))
+            );
+        })
+      )
       .subscribe(
         data => this.data = data,
         err => {
