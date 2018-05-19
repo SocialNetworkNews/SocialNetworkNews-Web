@@ -1,14 +1,7 @@
+import {throwError as observableThrowError, of} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
 import {ApiService, Paper} from '../api.service';
 import * as Raven from 'raven-js';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/retryWhen';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/concat';
-import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 import {Lightbox} from '../utils/lightbox';
 
@@ -38,13 +31,13 @@ export class PapersListComponent implements OnInit {
         return oerror
           .mergeMap((error: any) => {
             if (String(error.status).startsWith('50')) {
-              return Observable.of(error.status).delay(1000);
+              return of(error.status).delay(1000);
             }
-            return Observable.throw({error: 'Unknown error'});
+            return observableThrowError({error: 'Unknown error'});
           })
           .take(5)
           // TODO: Allow to link to a Status Page
-          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
+          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
         data => this.data = data,

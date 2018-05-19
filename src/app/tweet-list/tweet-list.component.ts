@@ -1,14 +1,8 @@
+
+import {throwError as observableThrowError, of} from 'rxjs';
 import {Component, Input, OnInit} from '@angular/core';
 import * as Raven from 'raven-js';
 import {ApiService, Paper, TweetsEntity} from '../api.service';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/retryWhen';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/concat';
-import 'rxjs/add/observable/throw';
 import {ToastrService} from 'ngx-toastr';
 import {Meta, Title} from '@angular/platform-browser';
 import {Lightbox} from '../utils/lightbox';
@@ -47,15 +41,15 @@ export class TweetListComponent implements OnInit {
         return oerror
           .mergeMap((error: any) => {
             if (String(error.status).startsWith('50')) {
-              return Observable.of(error.status).delay(1000);
+              return of(error.status).delay(1000);
             } else if (error.status === 404) {
-              return Observable.throw({error: 'Sorry, there was an error. The Server just doesn\'t find the requested paper :('});
+              return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find the requested paper :('});
             }
-            return Observable.throw({error: 'Unknown error'});
+            return observableThrowError({error: 'Unknown error'});
           })
           .take(5)
           // TODO: Allow to link to a Status Page
-          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
+          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
         data => {
@@ -89,15 +83,15 @@ export class TweetListComponent implements OnInit {
         return oerror
           .mergeMap((error: any) => {
             if (String(error.status).startsWith('50')) {
-              return Observable.of(error.status).delay(1000);
+              return of(error.status).delay(1000);
             } else if (error.status === 404) {
-              return Observable.throw({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
+              return observableThrowError({error: 'Sorry, there was an error. The Server just doesn\'t find any data for the requested time :('});
             }
-            return Observable.throw({error: 'Unknown error'});
+            return observableThrowError({error: 'Unknown error'});
           })
           .take(5)
           // TODO: Allow to link to a Status Page
-          .concat(Observable.throw({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
+          .concat(observableThrowError({error: 'Sorry, there was an error (after 5 retries). This probably means we can\'t reach our API Server :('}));
       })
       .subscribe(
         data => { this.data = this.sort(data.tweets); },

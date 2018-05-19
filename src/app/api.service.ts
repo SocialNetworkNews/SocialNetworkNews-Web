@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 export interface Tweet {
   tweets?: (TweetsEntity)[];
