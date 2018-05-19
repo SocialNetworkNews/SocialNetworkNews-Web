@@ -11,5 +11,5 @@ before_script:
   - yarn global add @angular/cli
 
 script:
-  - ng build --prod --aot
+  - yarn run build:ssr
   - ng test
