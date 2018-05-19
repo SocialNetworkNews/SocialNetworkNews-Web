@@ -5,9 +5,10 @@ module.exports = {
   entry: {  server: './server.ts' },
   resolve: { extensions: ['.js', '.ts'] },
   target: 'node',
-  mode: "production",
+  mode: 'none',
   // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/(node_modules|main\..*\.js)/],
+  externals: [/node_modules/],
+  devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'

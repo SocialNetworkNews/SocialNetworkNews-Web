@@ -3,7 +3,6 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService, Paper} from '../api.service';
 import * as Raven from 'raven-js';
 import {ToastrService} from 'ngx-toastr';
-import {Lightbox} from '../utils/lightbox';
 import {concat, delay, mergeMap, retryWhen, take} from 'rxjs/operators';
 
 @Component({
@@ -14,7 +13,7 @@ import {concat, delay, mergeMap, retryWhen, take} from 'rxjs/operators';
 export class PapersListComponent implements OnInit {
   data: (Paper)[];
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private lightbox: Lightbox) {
+  constructor(private apiService: ApiService, private toastr: ToastrService) {
     Raven.captureBreadcrumb({
       message: 'Listing Papers',
       category: 'papers-list'

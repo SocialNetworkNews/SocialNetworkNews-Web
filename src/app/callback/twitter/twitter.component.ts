@@ -1,11 +1,11 @@
 import {throwError as observableThrowError, of} from 'rxjs';
 import {delay, mergeMap, retryWhen, take, concat} from 'rxjs/operators';
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, Optional} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 
 import {HttpClient} from '@angular/common/http';
-import {DOCUMENT} from '@angular/common';
+import {APP_BASE_HREF, DOCUMENT} from '@angular/common';
 import {ApiService} from '../../api.service';
 @Component({
   selector: 'app-twitter',
