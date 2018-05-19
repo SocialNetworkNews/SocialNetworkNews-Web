@@ -1,0 +1,15 @@
+sudo: required
+addons:
+  chrome: stable
+
+language: node_js
+node_js:
+  - "9"
+
+before_script:
+  - npm install --global yarn
+  - yarn global add @angular/cli
+
+script:
+  - ng build --prod --aot
+  - ng test
