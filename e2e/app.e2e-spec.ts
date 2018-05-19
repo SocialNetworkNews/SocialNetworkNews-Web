@@ -7,8 +7,8 @@ describe('social-networks-news-web2 App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should have a menu', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getMenu()).toBeDefined();
   });
 });
