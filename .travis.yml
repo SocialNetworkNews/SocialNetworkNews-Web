@@ -19,3 +19,11 @@ script:
   - yarn run build:ssr
   - yarn run e2e
   - yarn run test
+
+notifications:
+  webhooks:
+    urls:
+      - https://riot.nordgedanken.de:4040/api/v1/dimension/webhooks/travisci/5E5AvHvIZsWAgqHcNJOkseuHZHeJVeNQefikK6M1JldUduQCnXjyMTdhhgdbRcXQfITmPuCU0LHbXYxjdwhyyj7JR9ll7Fe2OVNL0hvRxfdjA0QL8w8SEUisfNs83pLDrPYGZSs0clq8NZXuH5wi2gHT2WmRq1Gw
+    on_success: change  # always | never | change
+    on_failure: always
+    on_start: never
