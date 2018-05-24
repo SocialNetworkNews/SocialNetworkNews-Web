@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Raven from 'raven-js';
 import {ToastrModule} from 'ngx-toastr';
-import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
+import {NgHttpLoaderModule} from 'ng-http-loader';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
