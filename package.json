@@ -29,7 +29,7 @@
     "@angular/service-worker": "^6.0.2",
     "@angular/upgrade": "^6.0.0",
     "@nguniversal/express-engine": "^6.0.0",
-    "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^8.0.0",
     "angular-in-memory-web-api": "^0.6.0",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.6",
