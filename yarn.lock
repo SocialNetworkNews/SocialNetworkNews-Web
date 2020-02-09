@@ -4153,11 +4153,9 @@ next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
-ng-http-loader@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ng-http-loader/-/ng-http-loader-2.0.0.tgz#ca09361430f0ca6d6946e1b64b1cb4e447b974e4"
-  dependencies:
-    tslib "^1.9.0"
+ng-http-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ng-http-loader/-/ng-http-loader-7.0.0.tgz#6ebc6a68bba3728c4dda37871288b796e9d68ff9"
 
 ngx-toastr@^8.7.3:
   version "8.7.3"
