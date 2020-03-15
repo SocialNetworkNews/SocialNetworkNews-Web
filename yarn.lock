@@ -4159,11 +4159,9 @@ ng-http-loader@^2.0.0:
   dependencies:
     tslib "^1.9.0"
 
-ngx-toastr@^8.7.3:
-  version "8.7.3"
-  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-8.7.3.tgz#d3b7a8077ba1c860dd8a44779ccad38c5ea15c92"
-  dependencies:
-    tslib "^1.9.0"
+ngx-toastr@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-12.0.0.tgz#1b35a4e5b785246c558e091c831a26ebf211cfd7"
 
 nice-try@^1.0.4:
   version "1.0.4"
