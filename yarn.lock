@@ -242,9 +242,20 @@
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
 
-"@nguniversal/express-engine@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0.tgz#f8bc7b5e940afb1ffdbdcb1bb22665d440ea0b0b"
+"@nguniversal/common@11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-11.0.0.tgz#1777e60b15b58d31a75de1c316db9cb0383ec408"
+  integrity sha512-trcOrxEt1LjH0bl+zcqbY2UEhThi1FkzOBr3ox8uXrp8BZh6/V3mVtO4nNkSh71yPXlBJ0/qlDEpyqV4jvkMGw==
+  dependencies:
+    tslib "^2.0.0"
+
+"@nguniversal/express-engine@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-11.0.0.tgz#48450e199695faab79078a397e6bc9936a986fb4"
+  integrity sha512-CUsXnFK/BIeyY/sKY8G03R0QyTxPWbilMcR9aX2TPguL7hPtLqz4Jq8kuL2qN1xBwChV5XvdEQ4xKSl+jTKfAQ==
+  dependencies:
+    "@nguniversal/common" "11.0.0"
+    tslib "^2.0.0"
 
 "@nguniversal/module-map-ngfactory-loader@^6.0.0":
   version "6.0.0"
@@ -6132,6 +6143,11 @@ tsickle@^0.27.2:
 tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.1.tgz#a5d1f0532a49221c87755cfcc89ca37197242ba7"
+
+tslib@^2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
 
 tslint@^5.7.0:
   version "5.10.0"
