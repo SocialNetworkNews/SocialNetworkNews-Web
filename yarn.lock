@@ -4153,11 +4153,12 @@ next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
-ng-http-loader@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ng-http-loader/-/ng-http-loader-2.0.0.tgz#ca09361430f0ca6d6946e1b64b1cb4e447b974e4"
+ng-http-loader@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/ng-http-loader/-/ng-http-loader-10.0.0.tgz#b4853919e1144cccd4eaefc507354f88c82ac65c"
+  integrity sha512-DF+Xr3tyvv+c/Cplshe28MrbhATgvmLxqUAurbz53Y72kINoVrI20WBjjYBp/ooNgXeFOI4Z8uzJ6lHcFYYDaA==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.1.0"
 
 ngx-toastr@^8.7.3:
   version "8.7.3"
@@ -6132,6 +6133,11 @@ tsickle@^0.27.2:
 tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.1.tgz#a5d1f0532a49221c87755cfcc89ca37197242ba7"
+
+tslib@^2.1.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
+  integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
 
 tslint@^5.7.0:
   version "5.10.0"
